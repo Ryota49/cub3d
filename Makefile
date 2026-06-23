@@ -18,7 +18,9 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 SOURCES	=	cub3d.c
 
-OBJECTS	= $(SOURCES:.c=.o)
+OBJ_DIR = obj
+
+OBJECTS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
 
 MLX_LIB   = MacroLibX-master/libmlx.so
 
@@ -29,14 +31,17 @@ all: $(NAME)
 $(MLX_LIB):
 	$(MAKE) -C MacroLibX-master
 
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
 $(NAME): $(OBJECTS) $(MLX_LIB)
 	$(CC) $(CFLAGS) $(OBJECTS) $(MLX_LIB) $(LIBS) -o $(NAME)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJECTS)
+	rm -rf $(OBJ_DIR)
 	$(MAKE) -C MacroLibX-master clean
 
 fclean: clean
