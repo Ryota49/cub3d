@@ -6,11 +6,11 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 12:51:40 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/24 13:23:07 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/24 13:50:08 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../includes/cub3d.h"
 
 int	init_game(t_game *g)
 {
@@ -32,5 +32,5 @@ int	init_game(t_game *g)
 		clean(g);
 		return (0);
 	}
-		
+	return (1);
 }
