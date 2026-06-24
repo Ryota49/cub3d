@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "MacroLibX-master/includes/mlx.h"
+# include "../MacroLibX-master/includes/mlx.h"
 
 typedef struct s_game
 {
@@ -33,5 +33,8 @@ typedef struct s_game
 	float	dir_x;
 	float	dir_y;
 }	t_game;
+
+
+void	check_extension(char *map_file);
 
 #endif

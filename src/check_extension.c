@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   check_extension.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/23 16:52:49 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/06/24 12:29:49 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-// 1. Essayer d'ouvrir le fichier avec open, lire son contenu ligne par ligne
-// 2. Recuperer les informations importantes et les stocker dans une structure
-// 3. verifier que la map est valide (joueur entourer de mur)
 
 int	check_nbr_dot(char *map_file)
 {
@@ -36,7 +32,7 @@ void	check_extension_after_dot(char *map_file, int i)
 {
 	if (map_file[i + 1] == 'c' && map_file[i + 2] == 'u'
 		&& map_file[i + 3] == 'b' && map_file[i + 4] == '\0')
-		write (1, "Extension is correct\n", 21);
+		return ;
 	else
 	{
 		write (2, "Error: Wrong extension name of the file\n", 40);
@@ -63,15 +59,4 @@ void	check_extension(char *map_file)
 	}
 	else if (map_file[i] == '.')
 		check_extension_after_dot(map_file, i);
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		write (2, "Error: Wrong Number of argument\n", 32);
-		return (2);
-	}
-	check_extension(argv[1]);
-	return (0);
 }
