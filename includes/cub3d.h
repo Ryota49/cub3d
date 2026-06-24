@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include "../MacroLibX-master/includes/mlx.h"
+# include "get_next_line.h"
 
 typedef struct s_game
 {
