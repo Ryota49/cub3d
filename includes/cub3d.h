@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/24 13:22:01 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/24 13:36:59 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "MacroLibX-master/includes/mlx.h"
+# include "../MacroLibX-master/includes/mlx.h"
 
 typedef struct s_game
 {
@@ -42,5 +42,7 @@ typedef struct s_game
 }	t_game;
 
 void	clean(t_game *g);
+
+void	check_extension(char *map_file);
 
 #endif

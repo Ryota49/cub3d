@@ -14,13 +14,16 @@ NAME	=	cub3d
 
 CC		=	cc
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -g -Iincludes
 
-SOURCES	=	cub3d.c
+SRC_DIR =	src
+
+SOURCES	=	$(SRC_DIR)/cub3d.c \
+			$(SRC_DIR)/check_extension.c 
 
 OBJ_DIR = obj
 
-OBJECTS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
+OBJECTS =	$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 MLX_LIB   = MacroLibX-master/libmlx.so
 
@@ -37,7 +40,7 @@ $(OBJ_DIR):
 $(NAME): $(OBJECTS) $(MLX_LIB)
 	$(CC) $(CFLAGS) $(OBJECTS) $(MLX_LIB) $(LIBS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
