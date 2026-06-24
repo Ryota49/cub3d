@@ -34,7 +34,7 @@ void	check_extension_after_dot(char *map_file, int i)
 		&& map_file[i + 3] == 'b' && map_file[i + 4] == '\0')
 		return ;
 	else
-		handle_error("Error: Wrong extension name of the file\n");
+		handle_error("Error\nWrong extension name of the file\n");
 }
 
 void	check_extension(char *map_file)
@@ -43,11 +43,11 @@ void	check_extension(char *map_file)
 
 	i = 0;
 	if (check_nbr_dot(map_file) > 1)
-		handle_error("Error: Wrong number of dot in the file\n");
+		handle_error("Error\nWrong number of dot in the file\n");
 	while (map_file[i] && map_file[i] != '.')
 		i++;
 	if (map_file[i] == '\0')
-		handle_error("Error: No extension of the file detected\n");
+		handle_error("Error\nNo extension of the file detected\n");
 	else if (map_file[i] == '.')
 		check_extension_after_dot(map_file, i);
 }

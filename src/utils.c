@@ -6,18 +6,18 @@
 /*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/24 13:40:24 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/06/24 20:03:39 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-size_t  ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-    size_t  i;
+	size_t	i;
 
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_error.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/24 19:56:41 by jemonthi         ###   ########.fr       */
+/*   Created: 2025/10/15 17:10:34 by jemonthi          #+#    #+#             */
+/*   Updated: 2025/10/29 19:06:48 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
+#include "cub3d.h"
 
-void	handle_error_and_free(char *msg, char **splitter, char *line, int fd)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 
 	i = 0;
-	while (splitter[i])
+	while ((s1[i] || s2[i]))
 	{
-		free(splitter[i]);
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	free (splitter);
-	while (line != NULL)
-	{
-		free(line);
-		line = get_next_line(fd);
-	}
-	write (2, msg, ft_strlen(msg));
-	exit (2);
-}
-
-void	handle_error(char *msg_error)
-{
-	write (2, msg_error, ft_strlen(msg_error));
-	exit (2);
+	return (0);
 }

@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_error.c                                     :+:      :+:    :+:   */
+/*   initialise_structure.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/24 19:56:41 by jemonthi         ###   ########.fr       */
+/*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
+/*   Updated: 2026/06/23 16:52:49 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
+#include "cub3d.h"
 
-void	handle_error_and_free(char *msg, char **splitter, char *line, int fd)
+void	initialise_parsing(t_utils_parsing *parsing)
 {
-	size_t	i;
-
-	i = 0;
-	while (splitter[i])
-	{
-		free(splitter[i]);
-		i++;
-	}
-	free (splitter);
-	while (line != NULL)
-	{
-		free(line);
-		line = get_next_line(fd);
-	}
-	write (2, msg, ft_strlen(msg));
-	exit (2);
-}
-
-void	handle_error(char *msg_error)
-{
-	write (2, msg_error, ft_strlen(msg_error));
-	exit (2);
+	parsing->count_no = 0;
+	parsing->count_so = 0;
+	parsing->count_we = 0;
+	parsing->count_ea = 0;
+	parsing->count_f = 0;
+	parsing->count_c = 0;
+	parsing->header_done = 0;
+	parsing->start_map = 0;
 }
