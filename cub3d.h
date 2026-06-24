@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/23 16:02:46 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/06/24 09:24:00 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,22 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "MacroLibX-master/includes/mlx.h"
+
+typedef struct s_game
+{
+	char	**map;
+	char	*texture_n;
+	char	*texture_s;
+	char	*texture_e;
+	char	*texture_w;
+	
+	void	*mlx;
+	void	*win;
+
+	float	pos_x;
+	float	pos_y;
+	float	dir_x;
+	float	dir_y;
+}	t_game;
 
 #endif
