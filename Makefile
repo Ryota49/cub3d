@@ -19,7 +19,9 @@ CFLAGS	=	-Wall -Wextra -Werror -g -Iincludes
 SRC_DIR =	src
 
 SOURCES	=	$(SRC_DIR)/cub3d.c \
-			$(SRC_DIR)/check_extension.c 
+			$(SRC_DIR)/check_extension.c \
+			$(SRC_DIR)/handle_error.c \
+			$(SRC_DIR)/utils.c 
 
 OBJ_DIR = obj
 

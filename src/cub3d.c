@@ -16,6 +16,15 @@
 // 2. Recuperer les informations importantes et les stocker dans une structure
 // 3. verifier que la map est valide (joueur entourer de mur)
 
+void	open_file(char *map_file)
+{
+	int	fd;
+
+	fd = open(map_file, O_RDONLY);
+	if (fd < 0)
+		handle_error("Error: File cannot be open\n");
+}
+
 int	main(int argc, char **argv)
 {
 	if (argc != 2)
@@ -24,5 +33,6 @@ int	main(int argc, char **argv)
 		return (2);
 	}
 	check_extension(argv[1]);
+	open_file(argv[1]);
 	return (0);
 }

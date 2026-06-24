@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include "../MacroLibX-master/includes/mlx.h"
 
 typedef struct s_game
@@ -44,5 +45,7 @@ typedef struct s_game
 void	clean(t_game *g);
 
 void	check_extension(char *map_file);
+void    handle_error(char *msg_error);
+size_t  ft_strlen(char *str);
 
 #endif
