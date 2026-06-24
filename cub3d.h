@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/24 09:24:00 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/24 13:22:01 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,17 @@ typedef struct s_game
 
 	float	pos_x;
 	float	pos_y;
+	
 	float	dir_x;
 	float	dir_y;
+
+	float	plane_x;
+	float	plane_y;
+
+	int		screen_w;
+	int		screen_h;
 }	t_game;
+
+void	clean(t_game *g);
 
 #endif
