@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/25 15:51:09 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/25 15:56:37 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,20 @@ typedef struct s_ray
 	float	delta_dist_y;
 }	t_ray;
 
-
 typedef struct s_game
 {
-	char	**map;
-	char	*texture_n;
-	char	*texture_s;
-	char	*texture_e;
-	char	*texture_w;
+	char		**map;
+	char		*texture_n;
+	char		*texture_s;
+	char		*texture_e;
+	char		*texture_w;
 
-	void	*mlx;
-	void	*win;
+	void		*mlx;
+	void		*win;
 
-	int		screen_w;
-	int		screen_h;
+	int			screen_w;
+	int			screen_h;
+	t_player	player;
 }	t_game;
 
 // clean structure
