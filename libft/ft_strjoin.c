@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 12:51:40 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 10:36:02 by byonis           ###   ########.fr       */
+/*   Created: 2025/10/21 08:59:01 by byonis            #+#    #+#             */
+/*   Updated: 2025/12/29 15:15:22 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/libft.h"
 
-int	init_game(t_game *g)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	mlx_window_create_info info;
-	
-	if (!g)
+	char	*s_result;
+	size_t	s_len;
+	size_t	i;
+	size_t	s1_len;
+
+	if (!s1 || !s2)
 		return (0);
-	g->screen_w = 1280;
-	g->screen_h = 720;
-	g->mlx = mlx_init();
-	if (!g->mlx)
+	i = 0;
+	s1_len = ft_strlen(s1);
+	s_len = s1_len + ft_strlen(s2);
+	s_result = malloc(sizeof(char) * s_len + 1);
+	if (s_result == 0)
 		return (0);
-	ft_bzero(&info, sizeof(mlx_window_create_info));
-	info.title = "cub3d";
-	info.width = g->screen_w;
-	info.height= g->screen_h;
-	g->win = mlx_new_window(g->mlx, &info);
-	if (!g->win)
+	while (i < s_len)
 	{
-		clean(g);
-		return (0);
+		if (i < ft_strlen(s1))
+			s_result[i] = s1[i];
+		else
+			s_result[i] = s2[i - s1_len];
+		i++;
 	}
-	return (1);
+	s_result[i] = '\0';
+	return (s_result);
 }

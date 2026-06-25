@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 09:24:15 by byonis           ###   ########.fr       */
+/*   Created: 2025/10/18 10:06:56 by byonis            #+#    #+#             */
+/*   Updated: 2025/12/29 15:13:08 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/libft.h"
 
-void	clean(t_game *g)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	if (g->win)
-		mlx_destroy_window(g->mlx, g->win);
-	if (g->mlx)
-		mlx_destroy_context(g->mlx);
+	void	*t;
+
+	if (size != 0 && (nmemb * size) / size != nmemb)
+		return (0);
+	t = malloc(nmemb * size);
+	if (t == 0)
+		return (0);
+	ft_bzero(t, nmemb * size);
+	return (t);
 }

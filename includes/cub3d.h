@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/24 20:10:20 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/06/25 10:33:17 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <fcntl.h>
 # include <string.h>
 # include "../MacroLibX-master/includes/mlx.h"
-# include "get_next_line.h"
+# include "libft.h"
+// # include "get_next_line.h"
 # include <stdio.h>
 
 typedef struct s_utils_parsing
@@ -58,7 +59,7 @@ typedef struct s_game
 	int		screen_h;
 }	t_game;
 
-// macrolibx functions 
+// clean structure
 void	clean(t_game *g);
 
 // extension parsing
@@ -76,11 +77,12 @@ void	handle_error_and_free(char *msg, char **splitter, char *line, int fd);
 
 // initialise structure
 void	initialise_parsing(t_utils_parsing *parsing);
+int		init_game(t_game *g);
 
 // libft
-char	**ft_split(char const *s, char c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+// char	**ft_split(char const *s, char c);
+// char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_strcmp(const char *s1, const char *s2);
-size_t	ft_strlen(char *str);
+// size_t	ft_strlen(char *str);
 
 #endif

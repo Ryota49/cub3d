@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 09:24:15 by byonis           ###   ########.fr       */
+/*   Created: 2025/10/16 14:08:48 by byonis            #+#    #+#             */
+/*   Updated: 2025/12/29 15:14:26 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/libft.h"
 
-void	clean(t_game *g)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (g->win)
-		mlx_destroy_window(g->mlx, g->win);
-	if (g->mlx)
-		mlx_destroy_context(g->mlx);
+	size_t			i;
+	unsigned char	*s1_0;
+	unsigned char	*s2_0;
+
+	i = 0;
+	s1_0 = (unsigned char *)s1;
+	s2_0 = (unsigned char *)s2;
+	while (i < n)
+	{
+		if (s1_0[i] != s2_0[i])
+			return (s1_0[i] - s2_0[i]);
+		i++;
+	}
+	return (0);
 }

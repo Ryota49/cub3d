@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 09:24:15 by byonis           ###   ########.fr       */
+/*   Created: 2025/10/16 11:11:46 by byonis            #+#    #+#             */
+/*   Updated: 2025/12/29 15:15:50 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/libft.h"
 
-void	clean(t_game *g)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (g->win)
-		mlx_destroy_window(g->mlx, g->win);
-	if (g->mlx)
-		mlx_destroy_context(g->mlx);
+	size_t	i;
+	size_t	j;
+	char	*temp;
+	char	c1;
+
+	i = ft_strlen(s);
+	j = ft_strlen(s);
+	temp = (char *)s;
+	c1 = (char)c;
+	if (s == 0)
+		return (0);
+	while (i >= 0 && i <= j)
+	{
+		if (temp[i] == c1)
+			return (&temp[i]);
+		i--;
+	}
+	return (0);
 }

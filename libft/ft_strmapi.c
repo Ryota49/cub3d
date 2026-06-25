@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 09:24:15 by byonis           ###   ########.fr       */
+/*   Created: 2025/10/23 10:05:29 by byonis            #+#    #+#             */
+/*   Updated: 2025/12/29 15:15:39 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/libft.h"
 
-void	clean(t_game *g)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (g->win)
-		mlx_destroy_window(g->mlx, g->win);
-	if (g->mlx)
-		mlx_destroy_context(g->mlx);
+	size_t	i;
+	size_t	size;
+	char	*s_result;
+
+	if (!s || !f)
+		return (0);
+	size = ft_strlen(s);
+	i = 0;
+	s_result = malloc((size + 1) * sizeof(char));
+	if (!s_result)
+		return (0);
+	while (i < size)
+	{
+		s_result[i] = f(i, s[i]);
+		i++;
+	}
+	s_result[i] = '\0';
+	return (s_result);
 }
