@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 09:24:15 by byonis           ###   ########.fr       */
+/*   Created: 2025/10/13 16:21:57 by byonis            #+#    #+#             */
+/*   Updated: 2025/12/29 15:13:12 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/libft.h"
 
-void	clean(t_game *g)
+int	ft_isalnum(int c)
 {
-	if (g->win)
-		mlx_destroy_window(g->mlx, g->win);
-	if (g->mlx)
-		mlx_destroy_context(g->mlx);
+	if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
+		return (1);
+	return (0);
 }

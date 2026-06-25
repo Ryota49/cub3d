@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/23 16:52:49 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/06/25 10:38:07 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,21 @@
 
 int	main(int argc, char **argv)
 {
-	t_utils_parsing	parsing;
+	t_game			g;
+	// t_utils_parsing	parsing;
 
 	if (argc != 2)
 	{
 		write (2, "Error\n Wrong Number of argument\n", 32);
 		return (2);
 	}
-	check_extension(argv[1]);
-	initialise_parsing(&parsing);
-	open_file(&parsing, argv[1]);
+	(void)argv;
+	ft_bzero(&g, sizeof(t_game));
+	// check_extension(argv[1]);
+	// initialise_parsing(&parsing);
+	// open_file(&parsing, argv[1]);
+	init_game(&g);
+	while (g.win)
+		;
 	return (0);
 }

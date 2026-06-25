@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 09:24:15 by byonis           ###   ########.fr       */
+/*   Created: 2025/10/16 09:51:55 by byonis            #+#    #+#             */
+/*   Updated: 2025/12/29 15:16:03 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/libft.h"
 
-void	clean(t_game *g)
+int	ft_tolower(int c)
 {
-	if (g->win)
-		mlx_destroy_window(g->mlx, g->win);
-	if (g->mlx)
-		mlx_destroy_context(g->mlx);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

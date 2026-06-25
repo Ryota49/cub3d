@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 09:24:15 by byonis           ###   ########.fr       */
+/*   Created: 2025/10/15 15:47:27 by byonis            #+#    #+#             */
+/*   Updated: 2025/12/29 15:15:25 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/libft.h"
 
-void	clean(t_game *g)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	if (g->win)
-		mlx_destroy_window(g->mlx, g->win);
-	if (g->mlx)
-		mlx_destroy_context(g->mlx);
+	size_t	i;
+	size_t	len_dst;
+	size_t	len_src;
+
+	i = 0;
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	if (size <= len_dst)
+		return (size + len_src);
+	else
+	{
+		while (src[i] && i < size - len_dst -1)
+		{
+			dst[len_dst + i] = src[i];
+			i++;
+		}
+		dst[len_dst + i] = '\0';
+		return (len_dst + len_src);
+	}
 }

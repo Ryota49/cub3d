@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   arr_len.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 09:24:15 by byonis           ###   ########.fr       */
+/*   Created: 2026/01/01 10:46:33 by byonis            #+#    #+#             */
+/*   Updated: 2026/01/08 12:48:40 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/libft.h"
 
-void	clean(t_game *g)
+int	arr_len(char **arr)
 {
-	if (g->win)
-		mlx_destroy_window(g->mlx, g->win);
-	if (g->mlx)
-		mlx_destroy_context(g->mlx);
+	int	i;
+
+	if (!arr)
+		return (0);
+	i = 0;
+	while (arr[i] != NULL)
+		i++;
+	return (i);
 }
