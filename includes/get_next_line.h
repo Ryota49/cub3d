@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/23 16:52:49 by jemonthi         ###   ########.fr       */
+/*   Created: 2025/10/29 14:47:25 by jemonthi          #+#    #+#             */
+/*   Updated: 2025/11/10 07:54:10 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-// 1. Essayer d'ouvrir le fichier avec open, lire son contenu ligne par ligne
-// 2. Recuperer les informations importantes et les stocker dans une structure
-// 3. verifier que la map est valide (joueur entourer de mur)
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		write (2, "Error: Wrong Number of argument\n", 32);
-		return (2);
-	}
-	check_extension(argv[1]);
-	return (0);
-}
+size_t	len(const char *s);
+char	*ft_strdup(char *s);
+char	*ft_strchr(char *s, int c);
+char	*ft_strcpy(char *dest, char *src);
+char	*ft_strcat(char *dest, char *src);
+
+char	*get_next_line(int fd);
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 3
+# endif
+
+#endif
