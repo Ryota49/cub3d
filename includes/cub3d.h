@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/25 10:33:17 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/25 15:51:09 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <string.h>
+# include <math.h>
 # include "../MacroLibX-master/includes/mlx.h"
 # include "libft.h"
 // # include "get_next_line.h"
@@ -35,6 +36,26 @@ typedef struct s_utils_parsing
 
 }	t_utils_parsing;
 
+typedef struct s_player
+{
+	float	pos_x;
+	float	pos_y;
+	float	dir_x;
+	float	dir_y;
+	float	plane_x;
+	float	plane_y;
+}	t_player;
+
+typedef struct s_ray
+{
+	float	camera_x;
+	float	side_dist_x;
+	float	side_dist_y;
+	float	delta_dist_x;
+	float	delta_dist_y;
+}	t_ray;
+
+
 typedef struct s_game
 {
 	char	**map;
@@ -45,15 +66,6 @@ typedef struct s_game
 
 	void	*mlx;
 	void	*win;
-
-	float	pos_x;
-	float	pos_y;
-
-	float	dir_x;
-	float	dir_y;
-
-	float	plane_x;
-	float	plane_y;
 
 	int		screen_w;
 	int		screen_h;
