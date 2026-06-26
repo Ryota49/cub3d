@@ -22,17 +22,11 @@ SOURCES	=	$(SRC_DIR)/cub3d.c \
 			$(SRC_DIR)/check_extension.c \
 			$(SRC_DIR)/handle_error.c \
 			$(SRC_DIR)/initialise_structure.c \
-			$(SRC_DIR)/ft_strcmp.c \
 			$(SRC_DIR)/free_functions.c \
 			$(SRC_DIR)/read_header_of_map.c \
 			$(SRC_DIR)/clean/clean.c \
-			$(SRC_DIR)/init/init_game.c
-
-# $(SRC_DIR)/get_next_line.c \
-# $(SRC_DIR)/get_next_line_utils.c \
-# $(SRC_DIR)/ft_split.c \
-# $(SRC_DIR)/ft_substr.c \
-# $(SRC_DIR)/utils.c \
+			$(SRC_DIR)/init/init_game.c \
+			$(SRC_DIR)/event/event.c
 
 OBJ_DIR = obj
 

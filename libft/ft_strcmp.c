@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/24 20:03:39 by jemonthi         ###   ########.fr       */
+/*   Created: 2025/10/15 17:10:34 by jemonthi          #+#    #+#             */
+/*   Updated: 2025/10/29 19:06:48 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
+#include "../includes/libft.h"
 
-size_t	ft_strlen(char *str)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while ((s1[i] || s2[i]))
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
-	return (i);
+	}
+	return (0);
 }

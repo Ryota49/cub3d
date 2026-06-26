@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/25 10:33:17 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/26 10:29:26 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <string.h>
+# include <math.h>
 # include "../MacroLibX-master/includes/mlx.h"
 # include "libft.h"
-// # include "get_next_line.h"
 # include <stdio.h>
 
 typedef struct s_utils_parsing
@@ -35,28 +35,39 @@ typedef struct s_utils_parsing
 
 }	t_utils_parsing;
 
-typedef struct s_game
+typedef struct s_player
 {
-	char	**map;
-	char	*texture_n;
-	char	*texture_s;
-	char	*texture_e;
-	char	*texture_w;
-
-	void	*mlx;
-	void	*win;
-
 	float	pos_x;
 	float	pos_y;
-
 	float	dir_x;
 	float	dir_y;
-
 	float	plane_x;
 	float	plane_y;
+}	t_player;
 
-	int		screen_w;
-	int		screen_h;
+typedef struct s_ray
+{
+	float	camera_x;
+	float	side_dist_x;
+	float	side_dist_y;
+	float	delta_dist_x;
+	float	delta_dist_y;
+}	t_ray;
+
+typedef struct s_game
+{
+	char		**map;
+	char		*texture_n;
+	char		*texture_s;
+	char		*texture_e;
+	char		*texture_w;
+
+	void		*mlx;
+	void		*win;
+
+	int			screen_w;
+	int			screen_h;
+	t_player	player;
 }	t_game;
 
 // clean structure
@@ -79,10 +90,9 @@ void	handle_error_and_free(char *msg, char **splitter, char *line, int fd);
 void	initialise_parsing(t_utils_parsing *parsing);
 int		init_game(t_game *g);
 
-// libft
-// char	**ft_split(char const *s, char c);
-// char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_strcmp(const char *s1, const char *s2);
-// size_t	ft_strlen(char *str);
+// event
+void	key_hook(int key, void *param);
+// void	mouse_hook(int button, void *param);
+void	window_hook(int event, void *param);
 
 #endif
