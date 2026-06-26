@@ -18,24 +18,23 @@
 
 int	main(int argc, char **argv)
 {
-	t_game			g;
-	// t_utils_parsing	parsing;
+	//t_game			g;
+	t_utils_parsing	parsing;
 
 	if (argc != 2)
 	{
-		write (2, "Error\n Wrong Number of argument\n", 32);
+		write (2, "Error\nWrong Number of argument\n", 31);
 		return (2);
 	}
-	(void)argv;
-	ft_bzero(&g, sizeof(t_game));
-	// check_extension(argv[1]);
-	// initialise_parsing(&parsing);
-	// open_file(&parsing, argv[1]);
-	init_game(&g);
-	mlx_on_event(g.mlx, g.win, MLX_KEYDOWN, key_hook, g.mlx);
+	//ft_bzero(&g, sizeof(t_game));
+	check_extension(argv[1]);
+	initialise_parsing(&parsing);
+	open_file(&parsing, argv[1]);
+	//init_game(&g);
+	//mlx_on_event(g.mlx, g.win, MLX_KEYDOWN, key_hook, g.mlx);
 	// mlx_on_event(g.mlx, g.win, MLX_MOUSEDOWN, mouse_hook, g.mlx);
-	mlx_on_event(g.mlx, g.win, MLX_WINDOW_EVENT, window_hook, g.mlx);
-	mlx_loop(g.mlx);
-	clean(&g);
+	//mlx_on_event(g.mlx, g.win, MLX_WINDOW_EVENT, window_hook, g.mlx);
+	//mlx_loop(g.mlx);
+	//clean(&g);
 	return (0);
 }

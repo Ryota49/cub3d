@@ -49,7 +49,8 @@ MY_SOURCES = ft_isalpha.c \
 			strlen_int.c \
 			arr_len.c \
 			get_next_line_utils.c \
-			get_next_line.c
+			get_next_line.c \
+			ft_strcmp.c 
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 

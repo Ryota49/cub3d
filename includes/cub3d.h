@@ -20,7 +20,6 @@
 # include <math.h>
 # include "../MacroLibX-master/includes/mlx.h"
 # include "libft.h"
-// # include "get_next_line.h"
 # include <stdio.h>
 
 typedef struct s_utils_parsing
@@ -90,12 +89,6 @@ void	handle_error_and_free(char *msg, char **splitter, char *line, int fd);
 // initialise structure
 void	initialise_parsing(t_utils_parsing *parsing);
 int		init_game(t_game *g);
-
-// libft
-// char	**ft_split(char const *s, char c);
-// char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_strcmp(const char *s1, const char *s2);
-// size_t	ft_strlen(char *str);
 
 // event
 void	key_hook(int key, void *param);
