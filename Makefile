@@ -26,6 +26,7 @@ SOURCES	=	$(SRC_DIR)/cub3d.c \
 			$(SRC_DIR)/parsing/read_header_of_map.c \
 			$(SRC_DIR)/parsing/check_texture.c \
 			$(SRC_DIR)/parsing/check_color.c \
+			$(SRC_DIR)/parsing/utils.c \
 			$(SRC_DIR)/clean/clean.c \
 			$(SRC_DIR)/init/init_game.c \
 			$(SRC_DIR)/event/event.c 

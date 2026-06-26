@@ -15,17 +15,6 @@
 // demain rajouter la verif que le fichier de la texture existe bien dans 
 // splitter[1] pour chaque ligne du header
 
-void	remove_new_line(char *path)
-{
-	size_t	i;
-
-	i = 0;
-	while (path[i] && path[i] != '\n')
-		i++;
-	if (path[i] == '\n')
-		path[i] = '\0';
-}
-
 void	handle_splitter(t_utils_parsing *parsing)
 {
 	if (ft_strcmp(parsing->splitter[0], "NO") == 0)
@@ -41,7 +30,7 @@ void	handle_splitter(t_utils_parsing *parsing)
 	else if (ft_strcmp(parsing->splitter[0], "C") == 0)
 		check_color_c(parsing);
 	else
-		err_free("Error\nUnknown token in line\n", parsing);
+		err_free("Error\nUnknown token in header line\n", parsing);
 }
 
 // Parser R G B (les couleurs) que ca soit bien entre 0 et 255 
@@ -85,10 +74,10 @@ void	manage_line(t_utils_parsing *parsing)
 		parsing->line = get_next_line(parsing->fd);
 	}
 	// apres qu'on a nos 4 textures et 2 couleurs de stocker,
-	// on considere que toutes
-	// les prochaines lignes sont des lignes vides  ou avec uniquement \n
-	// donc pas de debut de map, et si on y trouve une ligne
-	// avec un 1, 0, espace, N, S, W, E
+	// on considere que toutes les prochaines lignes sont des
+	// lignes vides  ou avec uniquement \n donc pas de debut de map
+	// et si on y trouve une ligne avec un 1, 0, N, S, W ou E + espace ou tab potentiel
+	// alors la map est considerer commencer
 	if (parsing->header_done == 1)
 	{
 		free (parsing->line);
@@ -109,5 +98,7 @@ void	open_file(t_utils_parsing *parsing, char *map_file)
 		err_free("Error\nWrong number of tokens in map file\n", parsing);
 	if (parsing->header_done == 1)
 		write (1, "Good count of NO, SO, WE, EA, F and C in the file\n", 50);
+	if (parsing->header_done == 1)
+		/* mtn il faut passer en mode map et commencer a parser la map ainsi que le dessus de la map*/;
 	close (parsing->fd);
 }
