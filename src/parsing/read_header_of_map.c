@@ -98,7 +98,5 @@ void	open_file(t_utils_parsing *parsing, char *map_file)
 		err_free("Error\nWrong number of tokens in map file\n", parsing);
 	if (parsing->header_done == 1)
 		write (1, "Good count of NO, SO, WE, EA, F and C in the file\n", 50);
-	if (parsing->header_done == 1)
-		/* mtn il faut passer en mode map et commencer a parser la map ainsi que le dessus de la map*/;
 	close (parsing->fd);
 }
