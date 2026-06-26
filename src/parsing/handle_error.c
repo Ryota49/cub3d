@@ -41,7 +41,7 @@ void	cleanup_all(char *msg, t_utils_parsing *parsing)
 	exit (1);
 }
 
-void	handle_error_and_free(char *msg, t_utils_parsing *parsing)
+void	err_free(char *msg, t_utils_parsing *parsing)
 {
 	size_t	i;
 

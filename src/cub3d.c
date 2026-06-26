@@ -18,9 +18,8 @@
 
 int	main(int argc, char **argv)
 {
-	//t_game			g;
 	t_utils_parsing	parsing;
-
+	//t_game			g;
 	if (argc != 2)
 	{
 		write (2, "Error\nWrong Number of argument\n", 31);

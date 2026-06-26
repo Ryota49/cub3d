@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/26 13:32:28 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/26 16:11:30 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@ typedef struct s_utils_parsing
 {
 	char	**splitter;
 	char	*line;
-	int	fd;
-	int	count_no;
-	int	count_so;
-	int	count_we;
-	int	count_ea;
-	int	count_f;
-	int	count_c;
-	int	header_done;
-	int	start_map;
-	t_game game;
+	int		fd;
+	int		count_no;
+	int		count_so;
+	int		count_we;
+	int		count_ea;
+	int		count_f;
+	int		count_c;
+	int		header_done;
+	int		start_map;
+	t_game	game;
 
 }	t_utils_parsing;
 
@@ -94,13 +94,13 @@ void	free_splitter(char **splitter);
 
 //check texture files and stock them inside game structure
 void	check_path_texture_no(t_utils_parsing *parsing);
-void    check_path_texture_so(t_utils_parsing *parsing);
-void    check_path_texture_we(t_utils_parsing *parsing);
-void    check_path_texture_ea(t_utils_parsing *parsing);
+void	check_path_texture_so(t_utils_parsing *parsing);
+void	check_path_texture_we(t_utils_parsing *parsing);
+void	check_path_texture_ea(t_utils_parsing *parsing);
 
 // handle error
 void	handle_error(char *msg_error);
-void	handle_error_and_free(char *msg, t_utils_parsing *parsing);
+void	err_free(char *msg, t_utils_parsing *parsing);
 void	cleanup_all(char *msg, t_utils_parsing *parsing);
 
 // initialise structure
