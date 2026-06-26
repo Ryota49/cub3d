@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/25 15:56:37 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/26 10:29:26 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,10 @@ int		init_game(t_game *g);
 // char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_strcmp(const char *s1, const char *s2);
 // size_t	ft_strlen(char *str);
+
+// event
+void	key_hook(int key, void *param);
+// void	mouse_hook(int button, void *param);
+void	window_hook(int event, void *param);
 
 #endif

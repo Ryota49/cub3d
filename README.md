@@ -9,3 +9,4 @@
 ## Resources
 
 https://www.w3schools.com/c/c_ref_math.php
+https://macrolibx.kbz8.me/

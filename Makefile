@@ -26,7 +26,8 @@ SOURCES	=	$(SRC_DIR)/cub3d.c \
 			$(SRC_DIR)/free_functions.c \
 			$(SRC_DIR)/read_header_of_map.c \
 			$(SRC_DIR)/clean/clean.c \
-			$(SRC_DIR)/init/init_game.c
+			$(SRC_DIR)/init/init_game.c \
+			$(SRC_DIR)/event/event.c
 
 # $(SRC_DIR)/get_next_line.c \
 # $(SRC_DIR)/get_next_line_utils.c \
