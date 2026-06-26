@@ -22,19 +22,6 @@
 # include "libft.h"
 # include <stdio.h>
 
-typedef struct s_utils_parsing
-{
-	int	count_no;
-	int	count_so;
-	int	count_we;
-	int	count_ea;
-	int	count_f;
-	int	count_c;
-	int	header_done;
-	int	start_map;
-
-}	t_utils_parsing;
-
 typedef struct s_player
 {
 	float	pos_x;
@@ -70,6 +57,23 @@ typedef struct s_game
 	t_player	player;
 }	t_game;
 
+typedef struct s_utils_parsing
+{
+	char	**splitter;
+	char	*line;
+	int	fd;
+	int	count_no;
+	int	count_so;
+	int	count_we;
+	int	count_ea;
+	int	count_f;
+	int	count_c;
+	int	header_done;
+	int	start_map;
+	t_game game;
+
+}	t_utils_parsing;
+
 // clean structure
 void	clean(t_game *g);
 
@@ -78,13 +82,26 @@ void	check_extension(char *map_file);
 
 // open map_file and read line by line the header for now
 void	open_file(t_utils_parsing *parsing, char *map_file);
+void	manage_line(t_utils_parsing *parsing);
+void	handle_splitter(t_utils_parsing *parsing);
+void	handle_splitter_two(t_utils_parsing *parsing);
+
+//utils
+void	remove_new_line(char *path);
 
 // free functions
 void	free_splitter(char **splitter);
 
+//check texture files and stock them inside game structure
+void	check_path_texture_no(t_utils_parsing *parsing);
+void    check_path_texture_so(t_utils_parsing *parsing);
+void    check_path_texture_we(t_utils_parsing *parsing);
+void    check_path_texture_ea(t_utils_parsing *parsing);
+
 // handle error
 void	handle_error(char *msg_error);
-void	handle_error_and_free(char *msg, char **splitter, char *line, int fd);
+void	handle_error_and_free(char *msg, t_utils_parsing *parsing);
+void	cleanup_all(char *msg, t_utils_parsing *parsing);
 
 // initialise structure
 void	initialise_parsing(t_utils_parsing *parsing);

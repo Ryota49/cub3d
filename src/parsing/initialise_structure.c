@@ -22,4 +22,7 @@ void	initialise_parsing(t_utils_parsing *parsing)
 	parsing->count_c = 0;
 	parsing->header_done = 0;
 	parsing->start_map = 0;
+	parsing->line = NULL;
+	parsing->splitter = NULL;
+	parsing->fd = 0;
 }

@@ -15,52 +15,59 @@
 // demain rajouter la verif que le fichier de la texture existe bien dans 
 // splitter[1] pour chaque ligne du header
 
-void	handle_splitter_two(char **splitter, t_utils_parsing *parsing, char *line, int fd)
+void	handle_splitter_two(t_utils_parsing *parsing)
 {
-	if (ft_strcmp(splitter[0], "EA") == 0)
+	if (ft_strcmp(parsing->splitter[0], "EA") == 0)
 	{
-		if (splitter[2] != NULL)
-			handle_error_and_free("Error\nUnknown or multiple token in line\n", splitter, line, fd);
+		check_path_texture_ea(parsing);
 		parsing->count_ea++;
 	}
-	else if (ft_strcmp(splitter[0], "F") == 0)
+	else if (ft_strcmp(parsing->splitter[0], "F") == 0)
 	{
-		if (splitter[2] != NULL)
-			handle_error_and_free("Error\nUnknown or multiple token in line\n", splitter, line, fd);
+		if (parsing->splitter[2] != NULL)
+			handle_error_and_free("Error\nUnknown or multiple token in line\n", parsing);
 		parsing->count_f++;
 	}
-	else if (ft_strcmp(splitter[0], "C") == 0)
+	else if (ft_strcmp(parsing->splitter[0], "C") == 0)
 	{
-		if (splitter[2] != NULL)
-			handle_error_and_free("Error\nUnknown or multiple token in line\n", splitter, line, fd);
+		if (parsing->splitter[2] != NULL)
+			handle_error_and_free("Error\nUnknown or multiple token in line\n", parsing);
 		parsing->count_c++;
 	}
 	else
-		handle_error_and_free("Error\nUnknown or multiple token in line\n", splitter, line, fd);
+		cleanup_all("Error\nUnknown or multiple token in line\n", parsing);
 }
 
-void	handle_splitter(char **splitter, t_utils_parsing *parsing, char *line, int fd)
+void	remove_new_line(char *path)
 {
-	if (ft_strcmp(splitter[0], "NO") == 0)
+	size_t	i;
+
+	i = 0;
+	while (path[i] && path[i] != '\n')
+		i++;
+	if (path[i] == '\n')
+		path[i] = '\0';
+}
+
+void	handle_splitter(t_utils_parsing *parsing)
+{
+	if (ft_strcmp(parsing->splitter[0], "NO") == 0)
 	{
-		if (splitter[2] != NULL)
-			handle_error_and_free("Error\nUnknown or multiple token in line\n", splitter, line, fd);
+		check_path_texture_no(parsing);
 		parsing->count_no++;
 	}
-	else if (ft_strcmp(splitter[0], "SO") == 0)
+	else if (ft_strcmp(parsing->splitter[0], "SO") == 0)
 	{
-		if (splitter[2] != NULL)
-			handle_error_and_free("Error\nUnknown or multiple token in line\n", splitter, line, fd);
+		check_path_texture_so(parsing);
 		parsing->count_so++;
 	}
-	else if (ft_strcmp(splitter[0], "WE") == 0)
+	else if (ft_strcmp(parsing->splitter[0], "WE") == 0)
 	{
-		if (splitter[2] != NULL)
-			handle_error_and_free("Error\nUnknown or multiple token in line\n", splitter, line, fd);
+		check_path_texture_we(parsing);
 		parsing->count_we++;
 	}
 	else
-		handle_splitter_two(splitter, parsing, line, fd);
+		handle_splitter_two(parsing);
 }
 
 // Une fois qu'on a nos 6 valeurs comme il faut + save les chemins de splitter[1] en gros, on utilise plus jamais
@@ -72,49 +79,45 @@ void	handle_splitter(char **splitter, t_utils_parsing *parsing, char *line, int 
 // demain continuer la suite juste apres le while (line != NULL) ci dessous (effacer le 2eme while de la fonction
 // qui servait juste a eviter d'avoir le leak de gnl car on etait pas au bout du fichier ouvert).
 
-void	manage_line(t_utils_parsing *parsing, char *line, int fd)
+void	manage_line(t_utils_parsing *parsing)
 {
-	char	**splitter;
-
-	while (line != NULL)
+	while (parsing->line != NULL)
 	{
-		splitter = ft_split(line, ' ');
-		if (splitter[0] != NULL)
-			handle_splitter(splitter, parsing, line, fd);
-		free_splitter(splitter);
+		parsing->splitter = ft_split(parsing->line, ' ');
+		if (parsing->splitter[0] != NULL)
+			handle_splitter(parsing);
+		free_splitter(parsing->splitter);
 		if (parsing->count_no == 1 && parsing->count_so == 1 && parsing->count_we == 1 && parsing->count_ea == 1
 			&& parsing->count_f == 1 && parsing->count_c == 1)
             {
                 parsing->header_done = 1;
                 break ;
             }
-        free (line);
-		line = get_next_line(fd);
+        free (parsing->line);
+		parsing->line = get_next_line(parsing->fd);
 	}
-	while (line != NULL && parsing->header_done == 1)
+	while (parsing->line != NULL && parsing->header_done == 1)
 	{
-		free(line);
-		line = get_next_line(fd);
+		free(parsing->line);
+		parsing->line = get_next_line(parsing->fd);
 	}
 }
 
 void	open_file(t_utils_parsing *parsing, char *map_file)
 {
-	int		fd;
-	char	*line;
 
-	fd = open(map_file, O_RDONLY);
-	if (fd < 0)
+	parsing->fd = open(map_file, O_RDONLY);
+	if (parsing->fd < 0)
 		handle_error("Error\nMap file cannot be open (probably doesn't exist)\n");
-	line = get_next_line(fd);
-	if (line == NULL)
+	parsing->line = get_next_line(parsing->fd);
+	if (parsing->line == NULL)
 		handle_error("Error\nMap file is empty, nothing inside of it\n");
-	manage_line(parsing, line, fd);
+	manage_line(parsing);
 	if (parsing->count_no != 1 || parsing->count_so != 1 || parsing->count_we != 1 || parsing->count_ea != 1
 		|| parsing->count_f != 1 || parsing->count_c != 1)
 		handle_error("Error\nwrong number of token NO, SO, WE, EA, F or C\n");
 	if (parsing->count_no == 1 && parsing->count_so == 1 && parsing->count_we == 1 && parsing->count_ea == 1
 		&& parsing->count_f == 1 && parsing->count_c == 1)
 		write (1, "good count of NO, SO, WE, EA, F and C in the file\n", 50);
-	close (fd);
+	close (parsing->fd);
 }

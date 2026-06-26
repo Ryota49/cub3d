@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 	{
 		write (2, "Error\nWrong Number of argument\n", 31);
-		return (2);
+		return (1);
 	}
 	//ft_bzero(&g, sizeof(t_game));
 	check_extension(argv[1]);

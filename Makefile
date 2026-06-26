@@ -19,14 +19,15 @@ CFLAGS	=	-Wall -Wextra -Werror -g -Iincludes
 SRC_DIR =	src
 
 SOURCES	=	$(SRC_DIR)/cub3d.c \
-			$(SRC_DIR)/check_extension.c \
-			$(SRC_DIR)/handle_error.c \
-			$(SRC_DIR)/initialise_structure.c \
-			$(SRC_DIR)/free_functions.c \
-			$(SRC_DIR)/read_header_of_map.c \
+			$(SRC_DIR)/parsing/check_extension.c \
+			$(SRC_DIR)/parsing/handle_error.c \
+			$(SRC_DIR)/parsing/initialise_structure.c \
+			$(SRC_DIR)/parsing/free_functions.c \
+			$(SRC_DIR)/parsing/read_header_of_map.c \
 			$(SRC_DIR)/clean/clean.c \
 			$(SRC_DIR)/init/init_game.c \
-			$(SRC_DIR)/event/event.c
+			$(SRC_DIR)/event/event.c \
+			$(SRC_DIR)/parsing/check_texture.c 
 
 OBJ_DIR = obj
 

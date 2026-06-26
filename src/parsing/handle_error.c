@@ -10,30 +10,60 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
+#include "cub3d.h"
 
-void	handle_error_and_free(char *msg, char **splitter, char *line, int fd)
+void	cleanup_all(char *msg, t_utils_parsing *parsing)
 {
 	size_t	i;
 
 	i = 0;
-	while (splitter[i])
+	while (parsing->splitter[i])
 	{
-		free(splitter[i]);
+		free(parsing->splitter[i]);
 		i++;
 	}
-	free (splitter);
-	while (line != NULL)
+	free (parsing->splitter);
+	while (parsing->line != NULL)
 	{
-		free(line);
-		line = get_next_line(fd);
+		free(parsing->line);
+		parsing->line = get_next_line(parsing->fd);
 	}
+	close (parsing->fd);
+	if (parsing->game.texture_n)
+		free (parsing->game.texture_n);
+	if (parsing->game.texture_s)
+		free (parsing->game.texture_s);
+	if (parsing->game.texture_w)
+		free(parsing->game.texture_w);
+	if (parsing->game.texture_e)
+		free (parsing->game.texture_e);
 	write (2, msg, ft_strlen(msg));
-	exit (2);
+	exit (1);
+}
+
+void	handle_error_and_free(char *msg, t_utils_parsing *parsing)
+{
+	size_t	i;
+
+	i = 0;
+	while (parsing->splitter[i])
+	{
+		free(parsing->splitter[i]);
+		i++;
+	}
+	free (parsing->splitter);
+	while (parsing->line != NULL)
+	{
+		free(parsing->line);
+		parsing->line = get_next_line(parsing->fd);
+	}
+	close (parsing->fd);
+	write (2, msg, ft_strlen(msg));
+	exit (1);
 }
 
 void	handle_error(char *msg_error)
 {
 	write (2, msg_error, ft_strlen(msg_error));
-	exit (2);
+	exit (1);
 }
