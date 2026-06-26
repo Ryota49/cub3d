@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/26 10:29:26 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/26 13:32:28 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,8 @@ int		init_game(t_game *g);
 void	key_hook(int key, void *param);
 // void	mouse_hook(int button, void *param);
 void	window_hook(int event, void *param);
+
+// Player
+void	player_pos(t_game *game);
 
 #endif
