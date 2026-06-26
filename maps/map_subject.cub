@@ -3,7 +3,7 @@ SO textures/wall2.xpm
 WE textures/wall3.xpm
 EA textures/wall4.xpm
 
-F 255,100,20
+F 255,255,20
 
 C 225,30,0
 

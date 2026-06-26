@@ -25,4 +25,8 @@ void	initialise_parsing(t_utils_parsing *parsing)
 	parsing->line = NULL;
 	parsing->splitter = NULL;
 	parsing->fd = 0;
+	parsing->game.texture_n = NULL;
+	parsing->game.texture_s = NULL;
+	parsing->game.texture_w = NULL;
+	parsing->game.texture_e = NULL;
 }

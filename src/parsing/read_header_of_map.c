@@ -59,7 +59,7 @@ void	manage_line(t_utils_parsing *parsing)
 {
 	while (parsing->line != NULL)
 	{
-		parsing->splitter = ft_split(parsing->line, ' ');
+		parsing->splitter = ft_split_tab(parsing->line, "\t \n");
 		if (parsing->splitter[0] != NULL && parsing->splitter[0][0] != '\n')
 			handle_splitter(parsing);
 		free_splitter(parsing->splitter);

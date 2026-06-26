@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 MY_SOURCES = ft_isalpha.c \
 			ft_isdigit.c \
@@ -50,7 +50,8 @@ MY_SOURCES = ft_isalpha.c \
 			arr_len.c \
 			get_next_line_utils.c \
 			get_next_line.c \
-			ft_strcmp.c 
+			ft_strcmp.c \
+			ft_split_tab_space.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 

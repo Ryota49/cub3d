@@ -60,11 +60,11 @@ void    split_values(t_utils_parsing *parsing)
     size_t  i;
 
     i = 0;
-    values = ft_split(parsing->splitter[1], ',');
+    values = ft_split_tab(parsing->splitter[1], ",\t ");
+    if (!values[0] || !values[1] || !values[2])
+        err_values("Error\nMissing value for color\n", parsing, values);
     if (values[3] != NULL)
         err_values("Error\nToo much values for the color\n", parsing, values);
-    if (values[0] == NULL)
-        err_values("Error\nNo values found for colors\n", parsing, values);
     while (values[i])
     {
         if (ft_strlen(values[i]) <= 3)

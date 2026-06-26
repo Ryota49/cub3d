@@ -1,0 +1,96 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split_tab_space.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/26 12:47:57 by byonis            #+#    #+#             */
+/*   Updated: 2026/06/26 21:46:30 by byonis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/libft.h"
+
+size_t	number_of_wordss(char const *s, char *c)
+{
+	int		i;
+	size_t	cpt;
+
+	i = 0;
+	cpt = 0;
+	if (s == 0)
+		return (0);
+	while (s[i])
+	{
+		if ((i > 0 && s[i] != c[0] && s[i] != c[1]) && s[i] != c[2]
+			&& (s[i - 1] == c[0] || s[i - 1] == c[1] || s[i - 1] == c[2]))
+			cpt++;
+		if (i == 0 && s[i] != c[0] && s[i] != c[1] && s[i] != c[2])
+			cpt++;
+		i++;
+	}
+	return (cpt);
+}
+
+int	word_sizee(char const *s, char *c, int i)
+{
+	int	cpt;
+
+	cpt = 0;
+	while (s[i] == c[0] || s[i] == c[1] || (s[i] == c[2] && s[i]))
+		i++;
+	while (s[i] != c[0] && s[i] != c[1] && s[i] != c[2] && s[i])
+	{
+		cpt++;
+		i++;
+	}
+	return (cpt);
+}
+
+int	check_tabb(char **tab, int i)
+{
+	int	k;
+
+	k = i;
+	if (tab[k] == 0)
+	{
+		while (k >= 0)
+		{
+			free(tab[k]);
+			k--;
+		}
+		free(tab);
+		return (0);
+	}
+	return (1);
+}
+
+char	**ft_split_tab(char const *s, char *c)
+{
+	unsigned int		i;
+	int					j;
+	size_t				size;
+	char				**tab;
+
+	i = 0;
+	j = 0;
+	size = number_of_wordss(s, c);
+	tab = malloc((size + 1) * sizeof(char *));
+	if (tab == 0)
+		return (0);
+	tab[size] = NULL;
+	while (s != 0 && s[i])
+	{
+		if (s[i] != c[0] && s[i] != c[1] && s[i] != c[2])
+		{
+			tab[j] = ft_substr(s, i, word_sizee(s, c, i));
+			if (!check_tabb(tab, j))
+				return (0);
+			j++;
+			i += word_sizee(s, c, i) - 1;
+		}
+		i++;
+	}
+	return (tab);
+}

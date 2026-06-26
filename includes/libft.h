@@ -70,4 +70,6 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_substr_m(char *s, unsigned int start, size_t len);
 void	*ft_calloc(size_t nmemb, size_t size);
 
+char	**ft_split_tab(char const *s, char *c);
+
 #endif
