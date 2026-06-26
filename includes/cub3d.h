@@ -84,7 +84,6 @@ void	check_extension(char *map_file);
 void	open_file(t_utils_parsing *parsing, char *map_file);
 void	manage_line(t_utils_parsing *parsing);
 void	handle_splitter(t_utils_parsing *parsing);
-void	handle_splitter_two(t_utils_parsing *parsing);
 
 //utils
 void	remove_new_line(char *path);
@@ -98,10 +97,13 @@ void	check_path_texture_so(t_utils_parsing *parsing);
 void	check_path_texture_we(t_utils_parsing *parsing);
 void	check_path_texture_ea(t_utils_parsing *parsing);
 
+// check colors pattern and stock them inside game structure
+void    check_color_f(t_utils_parsing *parsing);
+void    check_color_c(t_utils_parsing *parsing);
+
 // handle error
 void	handle_error(char *msg_error);
 void	err_free(char *msg, t_utils_parsing *parsing);
-void	cleanup_all(char *msg, t_utils_parsing *parsing);
 
 // initialise structure
 void	initialise_parsing(t_utils_parsing *parsing);

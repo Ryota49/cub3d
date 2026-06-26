@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void	cleanup_all(char *msg, t_utils_parsing *parsing)
+void	err_free(char *msg, t_utils_parsing *parsing)
 {
 	size_t	i;
 
@@ -37,27 +37,6 @@ void	cleanup_all(char *msg, t_utils_parsing *parsing)
 		free(parsing->game.texture_w);
 	if (parsing->game.texture_e)
 		free (parsing->game.texture_e);
-	write (2, msg, ft_strlen(msg));
-	exit (1);
-}
-
-void	err_free(char *msg, t_utils_parsing *parsing)
-{
-	size_t	i;
-
-	i = 0;
-	while (parsing->splitter[i])
-	{
-		free(parsing->splitter[i]);
-		i++;
-	}
-	free (parsing->splitter);
-	while (parsing->line != NULL)
-	{
-		free(parsing->line);
-		parsing->line = get_next_line(parsing->fd);
-	}
-	close (parsing->fd);
 	write (2, msg, ft_strlen(msg));
 	exit (1);
 }

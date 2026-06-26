@@ -36,7 +36,7 @@ void	check_path_texture_no(t_utils_parsing *parsing)
 			|| parsing->splitter[1][len_path - 4] != '.')
 			err_free("Error\nWrong file extension for NO texture\n", parsing);
 		parsing->game.texture_n = ft_strdup(parsing->splitter[1]);
-		printf("texture north: %s\n", parsing->game.texture_n);
+		parsing->count_no++;
 	}
 }
 
@@ -64,7 +64,7 @@ void	check_path_texture_so(t_utils_parsing *parsing)
 			|| parsing->splitter[1][len_path - 4] != '.')
 			err_free("Error\nWrong file extension for SO texture\n", parsing);
 		parsing->game.texture_s = ft_strdup(parsing->splitter[1]);
-		printf("texture south: %s\n", parsing->game.texture_s);
+		parsing->count_so++;
 	}
 }
 
@@ -92,7 +92,7 @@ void	check_path_texture_we(t_utils_parsing *parsing)
 			|| parsing->splitter[1][len_path - 4] != '.')
 			err_free("Error\nWrong file extension for WE texture\n", parsing);
 		parsing->game.texture_w = ft_strdup(parsing->splitter[1]);
-		printf("texture west: %s\n", parsing->game.texture_w);
+		parsing->count_we++;
 	}
 }
 
@@ -120,6 +120,6 @@ void	check_path_texture_ea(t_utils_parsing *parsing)
 			|| parsing->splitter[1][len_path - 4] != '.')
 			err_free("Error\nWrong file extension for EA texture\n", parsing);
 		parsing->game.texture_e = ft_strdup(parsing->splitter[1]);
-		printf("texture east: %s\n", parsing->game.texture_e);
+		parsing->count_ea++;
 	}
 }
