@@ -34,8 +34,6 @@ int	n_size_str(long int n)
 
 int	ft_pow(unsigned int x, unsigned int n)
 {
-	if (n < 0)
-		return (0);
 	if (n == 0)
 		return (1);
 	return (x * ft_pow(x, n - 1));

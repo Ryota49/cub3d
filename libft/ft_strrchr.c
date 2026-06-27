@@ -25,7 +25,7 @@ char	*ft_strrchr(const char *s, int c)
 	c1 = (char)c;
 	if (s == 0)
 		return (0);
-	while (i >= 0 && i <= j)
+	while (i != (size_t)-1 && i <= j)
 	{
 		if (temp[i] == c1)
 			return (&temp[i]);
