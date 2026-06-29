@@ -78,8 +78,7 @@ void    split_values(t_utils_parsing *parsing)
 void	check_color_f(t_utils_parsing *parsing)
 {
     int i = 1;
-	//if (parsing->splitter[2] != NULL)
-		//err_free("Error\nMultiple token in line\n", parsing);
+
     if (!parsing->splitter[1] || parsing->splitter[1][0] == '\0')
 		err_free("Error\nNo color detected for the floor\n", parsing);
     if (parsing->splitter[1][0] == ',')
@@ -97,14 +96,12 @@ void	check_color_f(t_utils_parsing *parsing)
 	parsing->count_f++;
     if (parsing->count_f > 1)
         err_free("Error\nToo much floor reference\n", parsing);
-    printf("valeur du floor:\nR:%d\nG:%d\nB:%d\n", parsing->game.floor.r, parsing->game.floor.g, parsing->game.floor.b);;
 }
 
 void	check_color_c(t_utils_parsing *parsing)
 {
 	int i = 1;
-	//if (parsing->splitter[2] != NULL)
-		//err_free("Error\nMultiple token in line\n", parsing);
+
     if (!parsing->splitter[1] || parsing->splitter[1][0] == '\0')
 		err_free("Error\nNo color detected for the floor\n", parsing);
     if (parsing->splitter[1][0] == ',')
@@ -122,5 +119,4 @@ void	check_color_c(t_utils_parsing *parsing)
 	parsing->count_c++;
     if (parsing->count_c > 1)
         err_free("Error\nToo much floor reference\n", parsing);
-    printf("valeur du ceiling:\nR:%d\nG:%d\nB:%d\n", parsing->game.ceiling.r, parsing->game.ceiling.g, parsing->game.ceiling.b);
 }

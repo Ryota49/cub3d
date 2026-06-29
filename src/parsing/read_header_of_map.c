@@ -12,9 +12,6 @@
 
 #include "cub3d.h"
 
-// demain rajouter la verif que le fichier de la texture existe bien dans 
-// splitter[1] pour chaque ligne du header
-
 void	handle_splitter(t_utils_parsing *parsing)
 {
 	if (ft_strcmp(parsing->splitter[0], "NO") == 0)
@@ -32,15 +29,8 @@ void	handle_splitter(t_utils_parsing *parsing)
 	else
 		err_free("Error\nUnknown token in header line\n", parsing);
 }
-
-// Parser R G B (les couleurs) que ca soit bien entre 0 et 255 
-// avec 3 values max et min, si c'est good on stock 
-// R = 1st value, G = 2eme value, B = 3eme value dans 3 int
-// donc int r, int g, int b dans une structure.
-// Une fois qu'on a nos 6 valeurs comme il faut + 
-// save les chemins de splitter[1] en gros, on utilise plus jamais
-// splitter et on fait la suite ligne par ligne en utilisant line
-// pour partir du principe que l'on commence
+ 
+// lire ligne par ligne pour partir du principe que l'on commence
 // a etre dans la map et parser la map, si la ligne est entierement
 // vide = espace vide avant la map, si la ligne il y a 
 // soit 0, soit 1, soit W, soit S, soit W, soit E, avec
@@ -67,22 +57,15 @@ void	manage_line(t_utils_parsing *parsing)
 			&& parsing->count_we == 1 && parsing->count_ea == 1
 			&& parsing->count_f == 1 && parsing->count_c == 1)
 		{
+			free (parsing->line);
 			parsing->header_done = 1;
 			break ;
 		}
 		free (parsing->line);
 		parsing->line = get_next_line(parsing->fd);
 	}
-	// apres qu'on a nos 4 textures et 2 couleurs de stocker,
-	// on considere que toutes les prochaines lignes sont des
-	// lignes vides  ou avec uniquement \n donc pas de debut de map
-	// et si on y trouve une ligne avec un 1, 0, N, S, W ou E + espace ou tab potentiel
-	// alors la map est considerer commencer
 	if (parsing->header_done == 1)
-	{
-		free (parsing->line);
-		get_next_line(-1);
-	}
+		find_start_map(parsing);
 }
 
 void	open_file(t_utils_parsing *parsing, char *map_file)
@@ -96,7 +79,5 @@ void	open_file(t_utils_parsing *parsing, char *map_file)
 	manage_line(parsing);
 	if (parsing->header_done == 0)
 		err_free("Error\nWrong number of tokens in map file\n", parsing);
-	if (parsing->header_done == 1)
-		write (1, "Good count of NO, SO, WE, EA, F and C in the file\n", 50);
 	close (parsing->fd);
 }

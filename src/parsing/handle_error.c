@@ -14,7 +14,8 @@
 
 void	err_free(char *msg, t_utils_parsing *parsing)
 {
-	free_splitter(parsing->splitter);
+	if (parsing->splitter)
+		free_splitter(parsing->splitter);
 	if (parsing->line != NULL)
 	{
 		free(parsing->line);

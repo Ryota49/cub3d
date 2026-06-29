@@ -111,6 +111,9 @@ void	check_path_texture_ea(t_utils_parsing *parsing);
 void    check_color_f(t_utils_parsing *parsing);
 void    check_color_c(t_utils_parsing *parsing);
 
+// start finding the start of the map
+void    find_start_map(t_utils_parsing *parsing);
+
 // handle error
 void	handle_error(char *msg_error);
 void	err_free(char *msg, t_utils_parsing *parsing);

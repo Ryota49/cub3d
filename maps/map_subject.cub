@@ -3,9 +3,10 @@ SO textures/wall2.xpm
 WE textures/wall3.xpm
 EA textures/wall4.xpm
 
-F 	 25  5 ,	 255 , 20
+F 255 ,	 255 , 20
 
 C    255,220,0
+        
 
         1111111111111111111111111
         1000000000110000000000001

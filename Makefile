@@ -29,7 +29,9 @@ SOURCES	=	$(SRC_DIR)/cub3d.c \
 			$(SRC_DIR)/parsing/utils.c \
 			$(SRC_DIR)/clean/clean.c \
 			$(SRC_DIR)/init/init_game.c \
-			$(SRC_DIR)/event/event.c 
+			$(SRC_DIR)/event/event.c \
+			$(SRC_DIR)/player_pos.c \
+			$(SRC_DIR)/parsing/find_start_map.c 
 
 OBJ_DIR = obj
 
