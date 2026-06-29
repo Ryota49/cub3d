@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 12:51:40 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/25 13:02:17 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/29 11:10:09 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	init_game(t_game *g)
 		clean(g);
 		return (0);
 	}
+	player_pos(g);
 	return (1);
 }
