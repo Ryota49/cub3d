@@ -79,6 +79,10 @@ typedef struct s_utils_parsing
 	int		count_c;
 	int		header_done;
 	int		start_map;
+	char	**real_map;
+	char	**map_surrounded_space;
+	int		line_read;
+	int		height_map;
 	t_game	game;
 
 }	t_utils_parsing;
@@ -113,6 +117,9 @@ void    check_color_c(t_utils_parsing *parsing);
 
 // start finding the start of the map
 void    find_start_map(t_utils_parsing *parsing);
+
+// start allocate into struct the map
+void    allocate_map(t_utils_parsing *parsing, char *map_file);
 
 // handle error
 void	handle_error(char *msg_error);

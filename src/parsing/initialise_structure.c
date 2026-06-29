@@ -29,4 +29,6 @@ void	initialise_parsing(t_utils_parsing *parsing)
 	parsing->game.texture_s = NULL;
 	parsing->game.texture_w = NULL;
 	parsing->game.texture_e = NULL;
+	parsing->line_read = 0;
+	parsing->height_map = 0;
 }

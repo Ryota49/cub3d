@@ -49,6 +49,7 @@ void	manage_line(t_utils_parsing *parsing)
 {
 	while (parsing->line != NULL)
 	{
+		parsing->line_read++;
 		parsing->splitter = ft_split_tab(parsing->line, "\t \n");
 		if (parsing->splitter[0] != NULL && parsing->splitter[0][0] != '\n')
 			handle_splitter(parsing);
@@ -80,4 +81,5 @@ void	open_file(t_utils_parsing *parsing, char *map_file)
 	if (parsing->header_done == 0)
 		err_free("Error\nWrong number of tokens in map file\n", parsing);
 	close (parsing->fd);
+	allocate_map(parsing, map_file);
 }

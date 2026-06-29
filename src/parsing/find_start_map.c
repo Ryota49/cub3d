@@ -12,12 +12,6 @@
 
 #include "cub3d.h"
 
-// apres qu'on a nos 4 textures et 2 couleurs de stocker,
-	// on considere que toutes les prochaines lignes sont des
-	// lignes vides  ou avec uniquement \n donc pas de debut de map
-	// et si on y trouve une ligne avec un 1, 0, N, S, W ou E + espace ou tab potentiel
-	// alors la map est considerer commencer
-
 int    check_characters_line(t_utils_parsing *parsing)
 {
     size_t  i;
@@ -35,10 +29,59 @@ int    check_characters_line(t_utils_parsing *parsing)
     return (0);
 }
 
+//parcourir tout le fichier jusqu'au bout de la map, pour connaitre la taille de la map
+//pour pouvoir allouer a la bonne taille apres dans notre structure chaque ligne puis
+// faire des ft_strdup de chacune des lignes en relisant a nouveau le fichier a partir de
+// line_read du coup
+
+void     check_after_map(t_utils_parsing *parsing)
+{
+    size_t  i;
+
+    while (parsing->line != NULL)
+    {
+        i = 0;
+        remove_new_line(parsing->line);
+        while (parsing->line[i])
+        {
+            if (parsing->line[i] != ' ' && parsing->line[i] != '\t')
+                err_free("Error\nEmpty line in the map\n", parsing);
+            i++;
+        }
+        free(parsing->line);
+        parsing->line = get_next_line(parsing->fd);
+    }
+}
+
 void    start_map(t_utils_parsing *parsing)
 {
-    printf("fonction start map\n %s\n", parsing->line);
-    
+    size_t  i;
+    int  only_space;
+
+    while (parsing->line != NULL)
+    {
+        remove_new_line(parsing->line);
+        only_space = 0;
+        i = 0;
+        while (parsing->line[i])
+        {
+            if (ft_strchr("10NSWE", parsing->line[i]))
+                only_space-- ;
+            else if (parsing->line[i] == ' ' || parsing->line[i] == '\t')
+                only_space++ ;
+            else if (!ft_strchr("10NSWE \t", parsing->line[i]))
+                err_free("Error\nUnknown character in the map\n", parsing);
+            i++;
+        }
+        if ((size_t)only_space == ft_strlen(parsing->line))
+        {
+            check_after_map(parsing);
+            break ;
+        }
+        parsing->height_map++;
+        free(parsing->line);
+        parsing->line = get_next_line(parsing->fd);
+    }
 }
 
 void    find_start_map(t_utils_parsing *parsing)
@@ -47,9 +90,9 @@ void    find_start_map(t_utils_parsing *parsing)
     parsing->line = get_next_line(parsing->fd);
     while (parsing->line != NULL)
     {
+        parsing->line_read++;
         if (check_characters_line(parsing) == 1)
         {
-            printf("JE SUIS LA PREMIERE LIGNE DE LA MAP\n");
             parsing->start_map = 1;
             break ;
         }
