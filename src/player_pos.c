@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 13:15:07 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/29 11:09:34 by byonis           ###   ########.fr       */
+/*   Updated: 2026/06/29 12:50:46 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void	player_pos(t_game *game)
 				|| game->map[y][x] == 'W' || game->map[y][x] == 'E')
 			{
 				c = game->map[y][x];
-				game->player.pos_x = x;
-				game->player.pos_y = y;
+				game->player.pos_x = x + 0.5;
+				game->player.pos_y = y + 0.5;
 				player_dir(game, c);
 				player_plane(game, c);
 			}
