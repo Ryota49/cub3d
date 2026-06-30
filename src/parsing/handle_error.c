@@ -12,6 +12,23 @@
 
 #include "cub3d.h"
 
+void	err_map(char *msg, t_utils_parsing *parsing)
+{
+	if (parsing->real_map)
+		free_splitter(parsing->real_map);
+	get_next_line(-1);
+	if (parsing->game.texture_n)
+		free (parsing->game.texture_n);
+	if (parsing->game.texture_s)
+		free (parsing->game.texture_s);
+	if (parsing->game.texture_w)
+		free(parsing->game.texture_w);
+	if (parsing->game.texture_e)
+		free (parsing->game.texture_e);
+	write (2, msg, ft_strlen(msg));
+	exit (1);
+}
+
 void	err_free(char *msg, t_utils_parsing *parsing)
 {
 	if (parsing->splitter)

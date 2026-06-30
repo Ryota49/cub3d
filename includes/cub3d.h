@@ -66,6 +66,15 @@ typedef struct s_game
 	int			boolean;
 }	t_game;
 
+typedef struct s_character_map
+{
+	int	count_n;
+	int	count_s;
+	int	count_w;
+	int	count_e;
+
+}	t_character_map;
+
 typedef struct s_utils_parsing
 {
 	char	**splitter;
@@ -80,10 +89,12 @@ typedef struct s_utils_parsing
 	int		header_done;
 	int		start_map;
 	char	**real_map;
-	char	**map_surrounded_space;
+	char	**cpy_map;
 	int		line_read;
 	int		height_map;
+	int		width_max;
 	t_game	game;
+	t_character_map map;
 
 }	t_utils_parsing;
 
@@ -101,6 +112,7 @@ void	handle_splitter(t_utils_parsing *parsing);
 //utils
 void	remove_new_line(char *path);
 void    count_comma(t_utils_parsing *parsing);
+void    find_longest_line(t_utils_parsing *parsing);
 
 // free functions
 void	free_splitter(char **splitter);
@@ -124,7 +136,7 @@ void    allocate_map(t_utils_parsing *parsing, char *map_file);
 // handle error
 void	handle_error(char *msg_error);
 void	err_free(char *msg, t_utils_parsing *parsing);
-void	err_values(char *msg, t_utils_parsing *parsing, char **values);
+void	err_map(char *msg, t_utils_parsing *parsing);
 
 // initialise structure
 void	initialise_parsing(t_utils_parsing *parsing);

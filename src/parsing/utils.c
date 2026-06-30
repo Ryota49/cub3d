@@ -12,6 +12,19 @@
 
 #include "cub3d.h"
 
+void    find_longest_line(t_utils_parsing *parsing)
+{
+    size_t  i;
+
+    i = 0;
+    while (parsing->real_map[i])
+    {
+        if ((size_t)parsing->width_max < ft_strlen(parsing->real_map[i]))
+            parsing->width_max = ft_strlen(parsing->real_map[i]);
+        i++;
+    }
+}
+
 void	remove_new_line(char *path)
 {
 	size_t	i;

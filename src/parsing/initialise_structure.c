@@ -31,4 +31,9 @@ void	initialise_parsing(t_utils_parsing *parsing)
 	parsing->game.texture_e = NULL;
 	parsing->line_read = 0;
 	parsing->height_map = 0;
+	parsing->map.count_n = 0;
+	parsing->map.count_s = 0;
+	parsing->map.count_w = 0;
+	parsing->map.count_e = 0;
+	parsing->width_max = 0;
 }
