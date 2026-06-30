@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/26 16:11:30 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/06/30 14:09:56 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ typedef struct s_ray
 	float	side_dist_y;
 	float	delta_dist_x;
 	float	delta_dist_y;
+	int		step_x;
+	int		step_y;
+	int		map_y;
+	int		map_x;
 }	t_ray;
 
 typedef struct s_colors
