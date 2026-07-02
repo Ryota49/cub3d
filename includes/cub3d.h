@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/30 14:09:56 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/02 13:46:50 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct s_ray
 	int		step_y;
 	int		map_y;
 	int		map_x;
+	int		pixel_start;
+	int		pixel_end;
 }	t_ray;
 
 typedef struct s_colors
@@ -145,6 +147,7 @@ void	err_map(char *msg, t_utils_parsing *parsing);
 // initialise structure
 void	initialise_parsing(t_utils_parsing *parsing);
 int		init_game(t_game *g);
+void	init_ray(t_game *g, t_ray *ray, int x);
 
 // event
 void	key_hook(int key, void *param);
@@ -153,5 +156,9 @@ void	window_hook(int event, void *param);
 
 // Player
 void	player_pos(t_game *game);
+
+int		perform_dda(t_game *g, t_ray *ray);
+float	calculate_wall_dist(t_ray *ray, int side);
+void	calculate_pixel_start_end(t_game *g, t_ray *ray, float perp_wall_dist);
 
 #endif
