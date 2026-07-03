@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/26 10:31:04 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/03 11:14:43 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ int	main(int argc, char **argv)
 	//init_game(&g);
 	//mlx_on_event(g.mlx, g.win, MLX_KEYDOWN, key_hook, g.mlx);
 	// mlx_on_event(g.mlx, g.win, MLX_MOUSEDOWN, mouse_hook, g.mlx);
-	//mlx_on_event(g.mlx, g.win, MLX_WINDOW_EVENT, window_hook, g.mlx);
-	//mlx_loop(g.mlx);
-	//clean(&g);
+	// mlx_on_event(g.mlx, g.win, MLX_WINDOW_EVENT, window_hook, g.mlx);
+	// mlx_add_loop_hook(g.mlx, render, &g);
+	// mlx_loop(g.mlx);
+	// clean(&g);
 	return (0);
 }

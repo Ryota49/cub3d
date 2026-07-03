@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/02 13:46:50 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/03 14:11:37 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@
 # include "../MacroLibX-master/includes/mlx.h"
 # include "libft.h"
 # include <stdio.h>
+
+# define W_KEY 26
+# define S_KEY 22
+# define A_KEY 4
+# define D_KEY 7
+# define ESC_KEY 41
+
+# define MOVE_SPEED 0.05
 
 typedef struct s_player
 {
@@ -160,5 +168,7 @@ void	player_pos(t_game *game);
 int		perform_dda(t_game *g, t_ray *ray);
 float	calculate_wall_dist(t_ray *ray, int side);
 void	calculate_pixel_start_end(t_game *g, t_ray *ray, float perp_wall_dist);
+void	render(t_game *g, t_ray *ray);
+void	move_forward_or_move_back(t_game *g, int key);
 
 #endif

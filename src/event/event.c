@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 09:57:24 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/26 10:29:09 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/03 14:12:13 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	key_hook(int key, void *param)
 {
-	// ESC = 41
-	// W = 26
-	// A = 4
-	// S = 22
-	// D = 7
-	if (key == 41)
+	t_game	*g;
+
+	g = (t_game *)param;
+	move_forward_or_move_back(g, key);
+	if (key == ESC_KEY)
 		mlx_loop_end((mlx_context)param);
 }
 
