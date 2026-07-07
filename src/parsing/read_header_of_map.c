@@ -6,7 +6,7 @@
 /*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/26 18:12:03 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/07/07 16:32:20 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	handle_splitter(t_utils_parsing *parsing)
 	else
 		err_free("Error\nUnknown token in header line\n", parsing);
 }
- 
+
 // lire ligne par ligne pour partir du principe que l'on commence
 // a etre dans la map et parser la map, si la ligne est entierement
 // vide = espace vide avant la map, si la ligne il y a 

@@ -12,10 +12,6 @@
 
 #include "cub3d.h"
 
-// 1. Essayer d'ouvrir le fichier avec open, lire son contenu ligne par ligne
-// 2. Recuperer les informations importantes et les stocker dans une structure
-// 3. verifier que la map est valide (joueur entourer de mur)
-
 int	main(int argc, char **argv)
 {
 	t_utils_parsing	parsing;

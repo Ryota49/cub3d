@@ -6,14 +6,16 @@
 /*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/06/26 16:04:36 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/07/07 16:40:22 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// prochainement accepter egalement les fichier .jpg ou autres que la macrolibX peut lire 
-// faire une fonction a part qui s'occupe de check toutes les differences extensions
+// prochainement accepter egalement les fichier .jpg ou autres
+// que la macrolibX peut lire 
+// faire une fonction a part qui s'occupe de check
+// toutes les differences extensions
 
 void	check_path_texture_no(t_utils_parsing *parsing)
 {

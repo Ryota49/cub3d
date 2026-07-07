@@ -82,6 +82,8 @@ typedef struct s_game
 
 typedef struct s_character_map
 {
+	int	p_y;
+	int	p_x;
 	int	count_n;
 	int	count_s;
 	int	count_w;
@@ -146,6 +148,15 @@ void    find_start_map(t_utils_parsing *parsing);
 
 // start allocate into struct the map
 void    allocate_map(t_utils_parsing *parsing, char *map_file);
+void    create_copy_map(t_utils_parsing *parsing);
+void	copy_real_map(t_utils_parsing *parsing);
+void    find_player(t_utils_parsing *parsing);
+void    check_player_character(t_utils_parsing *parsing);
+void    check_count(t_utils_parsing *parsing);
+
+// flood_fill
+void	flood_fill(t_utils_parsing *parsing, int y, int x);
+void	flood_fill_player(t_utils_parsing *parsing, int y, int x);
 
 // handle error
 void	handle_error(char *msg_error);
