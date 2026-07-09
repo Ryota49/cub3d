@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 09:57:24 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/03 14:12:13 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/09 12:35:05 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	key_hook(int key, void *param)
 	g = (t_game *)param;
 	move_forward_or_move_back(g, key);
 	if (key == ESC_KEY)
-		mlx_loop_end((mlx_context)param);
+		mlx_loop_end(g->mlx);
 }
 
 // void	mouse_hook(int button, void *param)
@@ -31,6 +31,9 @@ void	key_hook(int key, void *param)
 
 void	window_hook(int event, void *param)
 {
+	t_game	*g;
+
+	g = (t_game *)param;
 	if (event == 0)
-		mlx_loop_end((mlx_context)param);
+		mlx_loop_end(g->mlx);
 }

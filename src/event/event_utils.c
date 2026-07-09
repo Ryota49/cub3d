@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:33:37 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/03 13:58:31 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/09 10:57:02 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 static int	is_wall(t_game *g, float x, float y)
 {
-	if (g->map[(int)y][(int)x] == 1)
+	if (x < 0 || y < 0 || !g->map[(int)y])
+		return (1);
+	if ((int)x >= (int)ft_strlen(g->map[(int)y]))
+		return (1);
+	if (g->map[(int)y][(int)x] == '1' || g->map[(int)y][(int)x] == ' ')
 		return (1);
 	return (0);
 }

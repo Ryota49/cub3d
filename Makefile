@@ -35,7 +35,11 @@ SOURCES	=	$(SRC_DIR)/cub3d.c \
 			$(SRC_DIR)/parsing/allocate_map.c \
 			$(SRC_DIR)/event/event_utils.c \
 			$(SRC_DIR)/parsing/flood_fill.c \
-			$(SRC_DIR)/parsing/find_player.c 
+			$(SRC_DIR)/parsing/find_player.c \
+			$(SRC_DIR)/render/render.c \
+			$(SRC_DIR)/init/init_ray.c \
+			$(SRC_DIR)/dda/perform_dda.c \
+			$(SRC_DIR)/calculate_wall_dist.c
 
 OBJ_DIR = obj
 

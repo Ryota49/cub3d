@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 13:17:44 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/02 13:11:02 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/08 11:26:25 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	init_ray(t_game *g, t_ray *ray, int x)
 	float	ray_dir_x;
 	float	ray_dir_y;
 
+	ray->map_x = (int)g->player.pos_x;
+	ray->map_y = (int)g->player.pos_y;
 	ray->camera_x = 2.0 * x / (float)g->screen_w - 1.0;
 	ray_dir_x = g->player.dir_x + g->player.plane_x * ray->camera_x;
 	ray_dir_y = g->player.dir_y + g->player.plane_y * ray->camera_x;

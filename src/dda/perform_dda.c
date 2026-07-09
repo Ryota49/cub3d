@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 16:22:45 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/01 16:29:44 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/09 10:52:18 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ int	perform_dda(t_game *g, t_ray *ray)
 			ray->map_y += ray->step_y;
 			side = 1;
 		}
+		if (ray->map_y < 0 || !g->map[ray->map_y])
+			break ;
+		if (ray->map_x < 0 || !g->map[ray->map_x])
+			break ;
+		if (g->map[ray->map_y][ray->map_x] == ' ' || g->map[ray->map_y][ray->map_x] == '\t')
+			break ;
 		if (g->map[ray->map_y][ray->map_x] == '1')
 			hit = 1;
 	}
