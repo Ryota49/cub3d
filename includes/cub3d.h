@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/09 13:47:54 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/14 09:38:33 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,28 +97,28 @@ typedef struct s_character_map
 
 typedef struct s_utils_parsing
 {
-	char	**splitter;
-	char	*line;
-	int		fd;
-	int		count_no;
-	int		count_so;
-	int		count_we;
-	int		count_ea;
-	int		count_f;
-	int		count_c;
-	int		header_done;
-	int		start_map;
-	char	**real_map;
-	char	**cpy_map;
-	int		line_read;
-	int		height_map;
-	int		width_max;
-	t_game	game;
+	char			**splitter;
+	char			*line;
+	int				fd;
+	int				count_no;
+	int				count_so;
+	int				count_we;
+	int				count_ea;
+	int				count_f;
+	int				count_c;
+	int				header_done;
+	int				start_map;
+	char			**real_map;
+	char			**cpy_map;
+	int				line_read;
+	int				height_map;
+	int				width_max;
+	t_game			game;
 	t_character_map map;
 
 }	t_utils_parsing;
 
-// clean structure
+// clean structure.
 void	clean_game(t_game *g);
 void	clean_parsing(t_utils_parsing *pars);
 

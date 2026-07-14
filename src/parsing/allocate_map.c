@@ -79,6 +79,7 @@ void	create_copy_map(t_utils_parsing *parsing)
 	find_player(parsing);
 	flood_fill_player(parsing, parsing->map.p_y, parsing->map.p_x);
 	free_splitter(parsing->cpy_map);
+	parsing->cpy_map = NULL;
 	parsing->game.map = parsing->real_map;
 }
 
@@ -104,6 +105,7 @@ void	allocate_map(t_utils_parsing *parsing, char *map_file)
 		i++;
 	}
 	parsing->real_map[i] = NULL;
+	parsing->line = NULL;
 	close (parsing->fd);
 	check_player_character(parsing);
 }

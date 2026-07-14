@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/09 14:00:03 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/14 09:40:11 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,20 @@ void	clean_game(t_game *g)
 		free(g->texture_w);
 	if (g->texture_e)
 		free(g->texture_e);
+	if (g->map)
+	{
+		free_splitter(g->map);
+		g->map = NULL;
+	}
 }
 
 void	clean_parsing(t_utils_parsing *pars)
 {
-	if (pars)
-		clean_game(&pars->game);
+	if (!pars)
+		return ;
+	if (pars->real_map == pars->game.map)
+		pars->real_map = NULL;
+	clean_game(&pars->game);
 	if (pars->splitter)
 		free_splitter(pars->splitter);
 	if (pars->line)
