@@ -49,7 +49,7 @@ MLX_LIB   = MacroLibX-master/libmlx.so
 
 LIBFT	= libft/libft.a
 
-LIBS        = -lSDL2
+LIBS        = -lSDL2 -lm
 
 all: $(NAME)
 

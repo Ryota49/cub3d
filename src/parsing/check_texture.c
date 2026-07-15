@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_texture.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/07 16:40:22 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/07/14 15:30:00 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	check_path_texture_no(t_utils_parsing *parsing)
 			err_free("Error\nCannot open file texture for NO\n", parsing);
 		close (fd_texture);
 		len_path = ft_strlen(parsing->splitter[1]);
-		if (parsing->splitter[1][len_path - 1] != 'm'
-			|| parsing->splitter[1][len_path - 2] != 'p'
-			|| parsing->splitter[1][len_path - 3] != 'x'
+		if (parsing->splitter[1][len_path - 1] != 'g'
+			|| parsing->splitter[1][len_path - 2] != 'n'
+			|| parsing->splitter[1][len_path - 3] != 'p'
 			|| parsing->splitter[1][len_path - 4] != '.')
 			err_free("Error\nWrong file extension for NO texture\n", parsing);
 		parsing->count_no++;
@@ -63,9 +63,9 @@ void	check_path_texture_so(t_utils_parsing *parsing)
 			err_free("Error\nCannot open file texture for SO\n", parsing);
 		close (fd_texture);
 		len_path = ft_strlen(parsing->splitter[1]);
-		if (parsing->splitter[1][len_path - 1] != 'm'
-			|| parsing->splitter[1][len_path - 2] != 'p'
-			|| parsing->splitter[1][len_path - 3] != 'x'
+		if (parsing->splitter[1][len_path - 1] != 'g'
+			|| parsing->splitter[1][len_path - 2] != 'n'
+			|| parsing->splitter[1][len_path - 3] != 'p'
 			|| parsing->splitter[1][len_path - 4] != '.')
 			err_free("Error\nWrong file extension for SO texture\n", parsing);
 		parsing->count_so++;
@@ -92,9 +92,9 @@ void	check_path_texture_we(t_utils_parsing *parsing)
 			err_free("Error\nCannot open file texture for WE\n", parsing);
 		close (fd_texture);
 		len_path = ft_strlen(parsing->splitter[1]);
-		if (parsing->splitter[1][len_path - 1] != 'm'
-			|| parsing->splitter[1][len_path - 2] != 'p'
-			|| parsing->splitter[1][len_path - 3] != 'x'
+		if (parsing->splitter[1][len_path - 1] != 'g'
+			|| parsing->splitter[1][len_path - 2] != 'n'
+			|| parsing->splitter[1][len_path - 3] != 'p'
 			|| parsing->splitter[1][len_path - 4] != '.')
 			err_free("Error\nWrong file extension for WE texture\n", parsing);
 		parsing->count_we++;
@@ -121,9 +121,9 @@ void	check_path_texture_ea(t_utils_parsing *parsing)
 			err_free("Error\nCannot open file texture for EA\n", parsing);
 		close (fd_texture);
 		len_path = ft_strlen(parsing->splitter[1]);
-		if (parsing->splitter[1][len_path - 1] != 'm'
-			|| parsing->splitter[1][len_path - 2] != 'p'
-			|| parsing->splitter[1][len_path - 3] != 'x'
+		if (parsing->splitter[1][len_path - 1] != 'g'
+			|| parsing->splitter[1][len_path - 2] != 'n'
+			|| parsing->splitter[1][len_path - 3] != 'p'
 			|| parsing->splitter[1][len_path - 4] != '.')
 			err_free("Error\nWrong file extension for EA texture\n", parsing);
 		parsing->count_ea++;

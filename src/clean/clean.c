@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/14 09:40:11 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/15 10:24:37 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 void	clean_game(t_game *g)
 {
-	if (g->mlx && g->win)
-		mlx_destroy_window(g->mlx, g->win);
-	if (g->mlx)
-		mlx_destroy_context(g->mlx);
 	if (g->texture_n)
 		free(g->texture_n);
 	if (g->texture_s)
@@ -26,11 +22,23 @@ void	clean_game(t_game *g)
 		free(g->texture_w);
 	if (g->texture_e)
 		free(g->texture_e);
+	if (g->tex_north)
+		mlx_destroy_image(g->mlx, g->tex_north);
+	if (g->tex_south)
+		mlx_destroy_image(g->mlx, g->tex_south);
+	if (g->tex_west)
+		mlx_destroy_image(g->mlx, g->tex_west);
+	if (g->tex_east)
+		mlx_destroy_image(g->mlx, g->tex_east);
 	if (g->map)
 	{
 		free_splitter(g->map);
 		g->map = NULL;
 	}
+	if (g->mlx && g->win)
+		mlx_destroy_window(g->mlx, g->win);
+	if (g->mlx)
+		mlx_destroy_context(g->mlx);
 }
 
 void	clean_parsing(t_utils_parsing *pars)

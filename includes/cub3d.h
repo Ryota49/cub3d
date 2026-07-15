@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/14 09:38:33 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/15 11:12:54 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_ray
 	int		map_x;
 	int		pixel_start;
 	int		pixel_end;
+	float	wall_dist;
 }	t_ray;
 
 typedef struct s_colors
@@ -73,6 +74,12 @@ typedef struct s_game
 	char			*texture_s;
 	char			*texture_e;
 	char			*texture_w;
+	void			*tex_north;
+	void			*tex_south;
+	void			*tex_east;
+	void			*tex_west;
+	int				img_width;
+	int				img_height;
 	void			*mlx;
 	void			*win;
 	int				screen_w;

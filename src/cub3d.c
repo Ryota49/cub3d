@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/13 12:41:25 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/15 09:45:38 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_utils_parsing	pars;
-	// t_game			g;
-	// int				i;
-	// int				j;
 
 	if (argc != 2)
 	{
@@ -34,10 +31,6 @@ int	main(int argc, char **argv)
 	}
 	pars.game.pars = &pars;
 	
-	// printf("MLX PTR: %p\n", pars.game.mlx);
-	// printf("WIN PTR: %p\n", pars.game.win);
-	// printf("DEBUG MAP: %p\n", pars.game.map);
-	// printf("DEBUG PLAYER POS: X=%f, Y=%f\n", pars.game.player.pos_x, pars.game.player.pos_y);
 	mlx_add_loop_hook(pars.game.mlx, render, &pars.game);
 	mlx_on_event(pars.game.mlx, pars.game.win, MLX_KEYDOWN, key_hook, &pars.game);
 	// mlx_on_event(g.mlx, g.win, MLX_MOUSEDOWN, mouse_hook, g.mlx);
