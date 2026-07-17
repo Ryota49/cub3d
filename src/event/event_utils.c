@@ -31,13 +31,13 @@ static void	rotate_left(t_game *g)
 	old_dir_x = g->player.dir_x;
 	old_plane_x = g->player.plane_x;
 	g->player.dir_x =
-	g->player.dir_x * cosf(ROT_SPEED) - g->player.dir_y * sinf(ROT_SPEED);
+	g->player.dir_x * cosf(-ROT_SPEED) - g->player.dir_y * sinf(-ROT_SPEED);
 	g->player.dir_y =
-	old_dir_x * sinf(ROT_SPEED) + g->player.dir_y * cosf(ROT_SPEED);
+	old_dir_x * sinf(-ROT_SPEED) + g->player.dir_y * cosf(-ROT_SPEED);
 	g->player.plane_x =
-	g->player.plane_x * cosf(ROT_SPEED) - g->player.plane_y * sinf(ROT_SPEED);
+	g->player.plane_x * cosf(-ROT_SPEED) - g->player.plane_y * sinf(-ROT_SPEED);
 	g->player.plane_y =
-	old_plane_x * sinf(ROT_SPEED) - g->player.plane_y * cosf(ROT_SPEED);
+	old_plane_x * sinf(-ROT_SPEED) + g->player.plane_y * cosf(-ROT_SPEED);
 }
 
 static void	rotate_right(t_game *g)
@@ -48,13 +48,13 @@ static void	rotate_right(t_game *g)
 	old_dir_x = g->player.dir_x;
 	old_plane_x = g->player.plane_x;
 	g->player.dir_x =
-	g->player.dir_x * cosf(-ROT_SPEED) - g->player.dir_y * sinf(-ROT_SPEED);
+	g->player.dir_x * cosf(ROT_SPEED) - g->player.dir_y * sinf(ROT_SPEED);
 	g->player.dir_y =
-	old_dir_x * sinf(-ROT_SPEED) + g->player.dir_y * cosf(-ROT_SPEED);
+	old_dir_x * sinf(ROT_SPEED) + g->player.dir_y * cosf(ROT_SPEED);
 	g->player.plane_x =
-	g->player.plane_x * cosf(-ROT_SPEED) - g->player.plane_y * sinf(-ROT_SPEED);
+	g->player.plane_x * cosf(ROT_SPEED) - g->player.plane_y * sinf(ROT_SPEED);
 	g->player.plane_y =
-	old_plane_x * sinf(-ROT_SPEED) - g->player.plane_y * cosf(-ROT_SPEED);
+	old_plane_x * sinf(ROT_SPEED) + g->player.plane_y * cosf(ROT_SPEED);
 }
 
 void	update_movement(t_game *g)

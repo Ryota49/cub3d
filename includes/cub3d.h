@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/17 11:56:27 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/17 13:41:44 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 # define ROT_LEFT 80
 # define ROT_RIGHT 79
 
-# define MOVE_SPEED 0.05
-# define ROT_SPEED 0.05
+# define MOVE_SPEED 0.02
+# define ROT_SPEED 0.02
 
 typedef struct s_utils_parsing t_utils_parsing;
 
