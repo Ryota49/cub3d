@@ -6,11 +6,22 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 13:07:33 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/17 12:56:07 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/17 15:53:01 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+static mlx_color	color_to_mlx_color(t_colors c)
+{
+	mlx_color	res;
+
+	res.r = c.r;
+	res.g = c.g;
+	res.b = c.b;
+	res.a = 255;
+	return (res);
+}
 
 static void	put_pixel_to_buffer(t_game *g, int x, int y, mlx_color color)
 {
@@ -52,11 +63,11 @@ void	draw_column(t_game *g, t_ray *ray, int x, int side)
 	y = 0;
 	while (y < ray->pixel_start)
 	{
-		put_pixel_to_buffer(g, x, y, (mlx_color){.rgba = 0x333333FF});
+		put_pixel_to_buffer(g, x, y, color_to_mlx_color(g->floor)); //(mlx_color){.rgba = 0x333333FF});
 		y++;
 	}
-	step = 1.0 * g->img_height / (ray->pixel_end - ray->pixel_start);
-	tex_pos = (ray->pixel_start - g->screen_h / 2 + (ray->pixel_end - ray->pixel_start) / 2) * step;
+	step = 1.0 * g->img_height / ray->line_height;
+	tex_pos = (ray->pixel_start - g->screen_h / 2 + ray->line_height / 2) * step;
 	while (y <= ray->pixel_end)
 	{
 		tex_y = (int)tex_pos % g->img_height;
@@ -67,7 +78,7 @@ void	draw_column(t_game *g, t_ray *ray, int x, int side)
 	}
 	while (y < g->screen_h)
 	{
-		put_pixel_to_buffer(g, x, y, (mlx_color){.rgba = 0x666666FF});
+		put_pixel_to_buffer(g, x, y, color_to_mlx_color(g->ceiling)); //(mlx_color){.rgba = 0x666666FF});
 		y++;
 	}
 	

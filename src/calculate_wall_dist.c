@@ -25,6 +25,7 @@ void	calculate_pixel_start_end(t_game *g, t_ray *ray, float perp_wall_dist)
 	int	line_height;
 
 	line_height = (int)(g->screen_h / perp_wall_dist);
+	ray->line_height = line_height;
 	ray->pixel_start = -line_height / 2 + g->screen_h / 2;
 	if (ray->pixel_start < 0)
 		ray->pixel_start = 0;
