@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/15 09:45:38 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/15 13:53:40 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	main(int argc, char **argv)
 	pars.game.pars = &pars;
 	
 	mlx_add_loop_hook(pars.game.mlx, render, &pars.game);
-	mlx_on_event(pars.game.mlx, pars.game.win, MLX_KEYDOWN, key_hook, &pars.game);
+	mlx_on_event(pars.game.mlx, pars.game.win, MLX_KEYDOWN, key_down_hook, &pars.game);
+	mlx_on_event(pars.game.mlx, pars.game.win, MLX_KEYUP, key_up_hook, &pars.game);
 	// mlx_on_event(g.mlx, g.win, MLX_MOUSEDOWN, mouse_hook, g.mlx);
 	mlx_on_event(pars.game.mlx, pars.game.win, MLX_WINDOW_EVENT, window_hook, &pars.game);
 	mlx_loop(pars.game.mlx);

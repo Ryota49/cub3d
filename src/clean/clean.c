@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/15 10:24:37 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/17 12:03:46 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ void	clean_game(t_game *g)
 		mlx_destroy_image(g->mlx, g->tex_west);
 	if (g->tex_east)
 		mlx_destroy_image(g->mlx, g->tex_east);
+	if (g->screen_img)
+		mlx_destroy_image(g->mlx, g->screen_img);
+	if (g->screen_pixels)
+		free(g->screen_pixels);
 	if (g->map)
 	{
 		free_splitter(g->map);

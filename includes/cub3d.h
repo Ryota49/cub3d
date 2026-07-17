@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/15 11:12:54 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/17 11:56:27 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,35 @@
 # include <string.h>
 # include <math.h>
 # include "../MacroLibX-master/includes/mlx.h"
+# include "../MacroLibX-master/includes/mlx_extended.h"
 # include "libft.h"
 # include <stdio.h>
+
+# define WINDOW_HEIGHT 720
+# define WINDOW_WIDTH 1280
 
 # define W_KEY 26
 # define S_KEY 22
 # define A_KEY 4
 # define D_KEY 7
 # define ESC_KEY 41
+# define ROT_LEFT 80
+# define ROT_RIGHT 79
 
 # define MOVE_SPEED 0.05
+# define ROT_SPEED 0.05
 
 typedef struct s_utils_parsing t_utils_parsing;
+
+typedef struct s_keys
+{
+	int	w;
+	int	s;
+	int	a;
+	int	d;
+	int	left;
+	int	right;
+}	t_keys;
 
 typedef struct s_player
 {
@@ -78,6 +95,8 @@ typedef struct s_game
 	void			*tex_south;
 	void			*tex_east;
 	void			*tex_west;
+	void			*screen_img;
+	mlx_color		*screen_pixels;
 	int				img_width;
 	int				img_height;
 	void			*mlx;
@@ -89,6 +108,7 @@ typedef struct s_game
 	t_colors		ceiling;
 	int				boolean;
 	t_utils_parsing	*pars;
+	t_keys			keys;
 }	t_game;
 
 typedef struct s_character_map
@@ -181,8 +201,10 @@ int		init_game(t_game *g, t_utils_parsing *parsing);
 void	init_ray(t_game *g, t_ray *ray, int x);
 
 // event
-void	key_hook(int key, void *param);
+// void	key_hook(int key, void *param);
 // void	mouse_hook(int button, void *param);
+void	key_down_hook(int key, void *param);
+void	key_up_hook(int key, void *param);
 void	window_hook(int event, void *param);
 
 // Player
@@ -192,6 +214,6 @@ int		perform_dda(t_game *g, t_ray *ray);
 float	calculate_wall_dist(t_ray *ray, int side);
 void	calculate_pixel_start_end(t_game *g, t_ray *ray, float perp_wall_dist);
 void	render(void *param);
-void	move_forward_or_move_back(t_game *g, int key);
+void	update_movement(t_game *g);
 
 #endif

@@ -54,7 +54,7 @@ LIBS        = -lSDL2 -lm
 all: $(NAME)
 
 $(MLX_LIB):
-	$(MAKE) -C MacroLibX-master
+	$(MAKE) -C MacroLibX-master -j
 
 $(LIBFT):
 	$(MAKE) -C libft
