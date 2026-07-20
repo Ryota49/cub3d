@@ -6,15 +6,15 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 13:17:44 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/08 11:26:25 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/20 09:33:47 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void	init_step_side(t_game *g, t_ray *ray, float ray_dir_x, float ray_dir_y)
+static void	init_step_side(t_game *g, t_ray *ray, float r_dir_x, float r_dir_y)
 {
-	if (ray_dir_x < 0)
+	if (r_dir_x < 0)
 	{
 		ray->step_x = -1;
 		ray->side_dist_x = (g->player.pos_x - ray->map_x) * ray->delta_dist_x;
@@ -22,10 +22,10 @@ static void	init_step_side(t_game *g, t_ray *ray, float ray_dir_x, float ray_dir
 	else
 	{
 		ray->step_x = 1;
-		ray->side_dist_x =
-			(ray->map_x + 1.0 - g->player.pos_x) * ray->delta_dist_x;
+		ray->side_dist_x = (ray->map_x + 1.0 - g->player.pos_x)
+			* ray->delta_dist_x;
 	}
-	if (ray_dir_y < 0)
+	if (r_dir_y < 0)
 	{
 		ray->step_y = -1;
 		ray->side_dist_y = (g->player.pos_y - ray->map_y) * ray->delta_dist_y;
@@ -33,8 +33,8 @@ static void	init_step_side(t_game *g, t_ray *ray, float ray_dir_x, float ray_dir
 	else
 	{
 		ray->step_y = 1;
-		ray->side_dist_y =
-			(ray->map_y + 1.0 - g->player.pos_y) * ray->delta_dist_y;
+		ray->side_dist_y = (ray->map_y + 1.0 - g->player.pos_y)
+			* ray->delta_dist_y;
 	}
 }
 

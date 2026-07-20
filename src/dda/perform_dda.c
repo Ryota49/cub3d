@@ -6,11 +6,25 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 16:22:45 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/13 11:44:37 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/20 11:42:19 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+static int	is_hit_or_out(t_game *g, t_ray *ray, int *hit)
+{
+	if (ray->map_y < 0 || !g->map[ray->map_y])
+		return (1);
+	if (ray->map_x < 0 || ray->map_x >= (int)ft_strlen(g->map[ray->map_y]))
+		return (1);
+	if (g->map[ray->map_y][ray->map_x] == ' '
+		|| g->map[ray->map_y][ray->map_x] == '\t')
+		return (1);
+	if (g->map[ray->map_y][ray->map_x] == '1')
+		*hit = 1;
+	return (0);
+}
 
 int	perform_dda(t_game *g, t_ray *ray)
 {
@@ -33,14 +47,8 @@ int	perform_dda(t_game *g, t_ray *ray)
 			ray->map_y += ray->step_y;
 			side = 1;
 		}
-		if (ray->map_y < 0 || !g->map[ray->map_y])
+		if (is_hit_or_out(g, ray, &hit))
 			break ;
-		if (ray->map_x < 0 || ray->map_x >= (int)ft_strlen(g->map[ray->map_y]))
-			break ;
-		if (g->map[ray->map_y][ray->map_x] == ' ' || g->map[ray->map_y][ray->map_x] == '\t')
-			break ;
-		if (g->map[ray->map_y][ray->map_x] == '1')
-			hit = 1;
 	}
 	return (side);
 }

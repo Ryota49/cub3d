@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/17 16:03:35 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/20 14:49:08 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@
 
 # define MOVE_SPEED 0.03
 # define ROT_SPEED 0.02
+# define MOUSE_SPEED 0.002
 
-typedef struct s_utils_parsing t_utils_parsing;
+typedef struct s_utils_parsing	t_utils_parsing;
 
 typedef struct s_keys
 {
@@ -97,7 +98,7 @@ typedef struct s_game
 	void			*tex_east;
 	void			*tex_west;
 	void			*screen_img;
-	mlx_color		*screen_pixels;
+	mlx_color		*screen_pix;
 	int				img_width;
 	int				img_height;
 	void			*mlx;
@@ -120,7 +121,6 @@ typedef struct s_character_map
 	int	count_s;
 	int	count_w;
 	int	count_e;
-
 }	t_character_map;
 
 typedef struct s_utils_parsing
@@ -142,79 +142,82 @@ typedef struct s_utils_parsing
 	int				height_map;
 	int				width_max;
 	t_game			game;
-	t_character_map map;
-
+	t_character_map	map;
 }	t_utils_parsing;
 
 // clean structure.
-void	clean_game(t_game *g);
-void	clean_parsing(t_utils_parsing *pars);
+void		clean_game(t_game *g);
+void		clean_parsing(t_utils_parsing *pars);
 
 // extension parsing
-void	check_extension(char *map_file);
+void		check_extension(char *map_file);
 
 // open map_file and read line by line the header for now
-void	open_file(t_utils_parsing *parsing, char *map_file);
-void	manage_line(t_utils_parsing *parsing);
-void	handle_splitter(t_utils_parsing *parsing);
+void		open_file(t_utils_parsing *parsing, char *map_file);
+void		manage_line(t_utils_parsing *parsing);
+void		handle_splitter(t_utils_parsing *parsing);
 
 //utils
-void	remove_new_line(char *path);
-void    count_comma(t_utils_parsing *parsing);
-void    find_longest_line(t_utils_parsing *parsing);
+void		remove_new_line(char *path);
+void		count_comma(t_utils_parsing *parsing);
+void		find_longest_line(t_utils_parsing *parsing);
 
 // free functions
-void	free_splitter(char **splitter);
+void		free_splitter(char **splitter);
 
 //check texture files and stock them inside game structure
-void	check_path_texture_no(t_utils_parsing *parsing);
-void	check_path_texture_so(t_utils_parsing *parsing);
-void	check_path_texture_we(t_utils_parsing *parsing);
-void	check_path_texture_ea(t_utils_parsing *parsing);
+void		check_path_texture_no(t_utils_parsing *parsing);
+void		check_path_texture_so(t_utils_parsing *parsing);
+void		check_path_texture_we(t_utils_parsing *parsing);
+void		check_path_texture_ea(t_utils_parsing *parsing);
 
 // check colors pattern and stock them inside game structure
-void    check_color_f(t_utils_parsing *parsing);
-void    check_color_c(t_utils_parsing *parsing);
+void		check_color_f(t_utils_parsing *parsing);
+void		check_color_c(t_utils_parsing *parsing);
 
 // start finding the start of the map
-void    find_start_map(t_utils_parsing *parsing);
+void		find_start_map(t_utils_parsing *parsing);
 
 // start allocate into struct the map
-void    allocate_map(t_utils_parsing *parsing, char *map_file);
-void    create_copy_map(t_utils_parsing *parsing);
-void	copy_real_map(t_utils_parsing *parsing);
-void    find_player(t_utils_parsing *parsing);
-void    check_player_character(t_utils_parsing *parsing);
-void    check_count(t_utils_parsing *parsing);
+void		allocate_map(t_utils_parsing *parsing, char *map_file);
+void		create_copy_map(t_utils_parsing *parsing);
+void		copy_real_map(t_utils_parsing *parsing);
+void		find_player(t_utils_parsing *parsing);
+void		check_player_character(t_utils_parsing *parsing);
+void		check_count(t_utils_parsing *parsing);
 
 // flood_fill
-void	flood_fill(t_utils_parsing *parsing, int y, int x);
-void	flood_fill_player(t_utils_parsing *parsing, int y, int x);
+void		flood_fill(t_utils_parsing *parsing, int y, int x);
+void		flood_fill_player(t_utils_parsing *parsing, int y, int x);
 
 // handle error
-void	handle_error(char *msg_error);
-void	err_free(char *msg, t_utils_parsing *parsing);
-void	err_map(char *msg, t_utils_parsing *parsing);
+void		handle_error(char *msg_error);
+void		err_free(char *msg, t_utils_parsing *parsing);
+void		err_map(char *msg, t_utils_parsing *parsing);
 
 // initialise structure
-void	initialise_parsing(t_utils_parsing *parsing);
-int		init_game(t_game *g, t_utils_parsing *parsing);
-void	init_ray(t_game *g, t_ray *ray, int x);
+void		initialise_parsing(t_utils_parsing *parsing);
+int			init_game(t_game *g, t_utils_parsing *parsing);
+void		init_ray(t_game *g, t_ray *ray, int x);
 
 // event
 // void	key_hook(int key, void *param);
 // void	mouse_hook(int button, void *param);
-void	key_down_hook(int key, void *param);
-void	key_up_hook(int key, void *param);
-void	window_hook(int event, void *param);
+void		key_down_hook(int key, void *param);
+void		key_up_hook(int key, void *param);
+void		window_hook(int event, void *param);
 
 // Player
-void	player_pos(t_game *game);
+void		player_pos(t_game *game);
 
-int		perform_dda(t_game *g, t_ray *ray);
-float	calculate_wall_dist(t_ray *ray, int side);
-void	calculate_pixel_start_end(t_game *g, t_ray *ray, float perp_wall_dist);
-void	render(void *param);
-void	update_movement(t_game *g);
+int			perform_dda(t_game *g, t_ray *ray);
+float		calculate_wall_dist(t_ray *ray, int side);
+void		calculate_pixel_start_end(
+				t_game *g, t_ray *ray, float perp_wall_dist);
+mlx_color	color_to_mlx_color(t_colors c);
+void		put_pixel_to_buffer(t_game *g, int x, int y, mlx_color color);
+void		render(void *param);
+void		update_movement_mouse(t_game *g);
+void		update_movement(t_game *g);
 
 #endif

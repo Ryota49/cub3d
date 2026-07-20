@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	cub3d
+NAME	=	cub3D
 
 CC		=	cc
 
-CFLAGS	=	-Wall -Wextra -Werror -g -Iincludes
+CFLAGS	=	-Wall -Wextra -Werror -g -Iincludes -MMD -MP
 
 SRC_DIR =	src
 
@@ -33,9 +33,11 @@ SOURCES	=	$(SRC_DIR)/cub3d.c \
 			$(SRC_DIR)/player_pos.c \
 			$(SRC_DIR)/parsing/find_start_map.c \
 			$(SRC_DIR)/parsing/allocate_map.c \
-			$(SRC_DIR)/event/event_utils.c \
+			$(SRC_DIR)/event/event_keyboard.c \
+			$(SRC_DIR)/event/event_mouse.c \
 			$(SRC_DIR)/parsing/flood_fill.c \
 			$(SRC_DIR)/parsing/find_player.c \
+			$(SRC_DIR)/render/render_utils.c \
 			$(SRC_DIR)/render/render.c \
 			$(SRC_DIR)/init/init_ray.c \
 			$(SRC_DIR)/dda/perform_dda.c \
@@ -49,7 +51,7 @@ MLX_LIB   = MacroLibX-master/libmlx.so
 
 LIBFT	= libft/libft.a
 
-LIBS        = -lSDL2 -lm
+LIBS 	= -lSDL2 -lm
 
 all: $(NAME)
 
@@ -80,6 +82,8 @@ fclean: clean
 	$(MAKE) -C libft fclean
 
 re: fclean all
+
+-include $(OBJECTS:.o=.d)
 
 .PHONY: all clean fclean re
 

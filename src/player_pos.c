@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 13:15:07 by byonis            #+#    #+#             */
-/*   Updated: 2026/06/29 12:50:46 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/20 09:20:46 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	player_plane(t_game *game, char c)
 	if (c == 'E')
 	{
 		game->player.plane_x = 0.0;
-		game->player.plane_y = 0.66;	
+		game->player.plane_y = 0.66;
 	}
 	if (c == 'W')
 	{
@@ -51,7 +51,7 @@ void	player_dir(t_game *game, char c)
 	if (c == 'E')
 	{
 		game->player.dir_x = 1.0;
-		game->player.dir_y = 0.0;	
+		game->player.dir_y = 0.0;
 	}
 	if (c == 'W')
 	{

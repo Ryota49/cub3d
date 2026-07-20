@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 09:57:24 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/15 17:25:18 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/20 09:38:11 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,6 @@ void	key_up_hook(int key, void *param)
 	if (key == ROT_LEFT)
 		g->keys.left = 0;
 }
-
-// void	key_hook(int key, void *param)
-// {
-// 	t_game	*g;
-
-// 	g = (t_game *)param;
-// 	move_forward_or_move_back(g, key);
-// 	if (key == ESC_KEY)
-// 		mlx_loop_end(g->mlx);
-// }
-
-// void	mouse_hook(int button, void *param)
-// {
-// 	// CLIC GAUCHE = 1
-// 	// CLIC MOLLETTE = 2
-// 	// CLIC DROIT = 3
-// }
 
 void	window_hook(int event, void *param)
 {

@@ -6,11 +6,25 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:17:16 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/17 12:03:46 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/20 11:00:47 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+static void	clean_image(t_game *g)
+{
+	if (g->tex_north)
+		mlx_destroy_image(g->mlx, g->tex_north);
+	if (g->tex_south)
+		mlx_destroy_image(g->mlx, g->tex_south);
+	if (g->tex_west)
+		mlx_destroy_image(g->mlx, g->tex_west);
+	if (g->tex_east)
+		mlx_destroy_image(g->mlx, g->tex_east);
+	if (g->screen_img)
+		mlx_destroy_image(g->mlx, g->screen_img);
+}
 
 void	clean_game(t_game *g)
 {
@@ -22,18 +36,9 @@ void	clean_game(t_game *g)
 		free(g->texture_w);
 	if (g->texture_e)
 		free(g->texture_e);
-	if (g->tex_north)
-		mlx_destroy_image(g->mlx, g->tex_north);
-	if (g->tex_south)
-		mlx_destroy_image(g->mlx, g->tex_south);
-	if (g->tex_west)
-		mlx_destroy_image(g->mlx, g->tex_west);
-	if (g->tex_east)
-		mlx_destroy_image(g->mlx, g->tex_east);
-	if (g->screen_img)
-		mlx_destroy_image(g->mlx, g->screen_img);
-	if (g->screen_pixels)
-		free(g->screen_pixels);
+	clean_image(g);
+	if (g->screen_pix)
+		free(g->screen_pix);
 	if (g->map)
 	{
 		free_splitter(g->map);
