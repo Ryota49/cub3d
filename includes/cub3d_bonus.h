@@ -6,7 +6,7 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/21 12:26:39 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/20 16:17:09 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,6 +217,7 @@ void		calculate_pixel_start_end(
 mlx_color	color_to_mlx_color(t_colors c);
 void		put_pixel_to_buffer(t_game *g, int x, int y, mlx_color color);
 void		render(void *param);
+void		update_movement_mouse(t_game *g);
 void		update_movement(t_game *g);
 
 #endif

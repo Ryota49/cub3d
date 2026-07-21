@@ -6,11 +6,11 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:33:37 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/20 11:02:32 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/21 12:27:00 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 static int	is_wall(t_game *g, float x, float y)
 {
@@ -97,5 +97,4 @@ void	update_movement(t_game *g)
 		rotate_left(g);
 	if (g->keys.right)
 		rotate_right(g);
-	update_movement_mouse(g);
 }

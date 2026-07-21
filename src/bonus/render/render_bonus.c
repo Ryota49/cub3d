@@ -6,11 +6,11 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 13:07:33 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/20 13:52:21 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/21 10:05:03 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 static void	*get_texture_data(t_game *g, t_ray *ray, int side, int *tex_x)
 {

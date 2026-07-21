@@ -6,11 +6,11 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 13:17:44 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/20 09:33:47 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/21 10:05:03 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 static void	init_step_side(t_game *g, t_ray *ray, float r_dir_x, float r_dir_y)
 {

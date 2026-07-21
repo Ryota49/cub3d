@@ -6,11 +6,11 @@
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 13:52:40 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/20 13:56:52 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/21 10:05:03 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 mlx_color	color_to_mlx_color(t_colors c)
 {
