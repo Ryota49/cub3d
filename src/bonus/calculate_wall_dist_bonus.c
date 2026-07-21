@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calculate_wall_dist.c                              :+:      :+:    :+:   */
+/*   calculate_wall_dist_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 16:51:43 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/20 09:20:58 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/21 12:38:38 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 float	calculate_wall_dist(t_ray *ray, int side)
 {

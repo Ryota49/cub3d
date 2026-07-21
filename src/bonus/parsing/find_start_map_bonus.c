@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_start_map.c                                   :+:      :+:    :+:   */
+/*   find_start_map_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jemonthi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 18:30:10 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/07 16:25:22 by jemonthi         ###   ########.fr       */
+/*   Updated: 2026/07/21 12:38:00 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 int	check_characters_line(t_utils_parsing *parsing)
 {

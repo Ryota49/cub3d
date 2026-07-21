@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_keyboard.c                                   :+:      :+:    :+:   */
+/*   event_keyboard_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:33:37 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/21 10:05:03 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/21 12:37:13 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "../../../includes/cub3d_bonus.h"
 
 static int	is_wall(t_game *g, float x, float y)
 {

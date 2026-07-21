@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_mouse.c                                      :+:      :+:    :+:   */
+/*   event_mouse_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 16:06:46 by byonis            #+#    #+#             */
-/*   Updated: 2026/07/21 10:05:03 by byonis           ###   ########.fr       */
+/*   Updated: 2026/07/21 12:37:17 by byonis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "../../../includes/cub3d_bonus.h"
 
 static void	apply_mouse_rotation(t_game *g, int delta_x)
 {
