@@ -66,7 +66,8 @@ BNS_SOURCES	= $(BNS_DIR)/cub3d_bonus.c \
 			  $(BNS_DIR)/render/render_bonus.c \
 			  $(BNS_DIR)/init/init_ray_bonus.c \
 			  $(BNS_DIR)/dda/perform_dda_bonus.c \
-			  $(BNS_DIR)/calculate_wall_dist_bonus.c
+			  $(BNS_DIR)/calculate_wall_dist_bonus.c \
+			  $(BNS_DIR)/render/render_minimap_bonus.c 
 
 OBJ_DIR = obj/mandatory
 OBJ_DIR_BONUS = obj/bonus

@@ -85,6 +85,13 @@ typedef struct s_colors
 
 }	t_colors;
 
+typedef struct s_minimap
+{
+	int	cell;
+	int	offset_x;
+	int	offset_y;
+} t_minimap;
+
 typedef struct s_game
 {
 	t_ray			ray;
@@ -111,6 +118,7 @@ typedef struct s_game
 	int				boolean;
 	t_utils_parsing	*pars;
 	t_keys			keys;
+	t_minimap		minimap;
 }	t_game;
 
 typedef struct s_character_map
@@ -219,5 +227,9 @@ void		put_pixel_to_buffer(t_game *g, int x, int y, mlx_color color);
 void		render(void *param);
 void		update_movement_mouse(t_game *g);
 void		update_movement(t_game *g);
+
+// Minimap
+void	draw_minimap(t_game *g);
+void    initialise_minimap(t_game *g);
 
 #endif

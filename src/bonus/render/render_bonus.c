@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "../../../includes/cub3d_bonus.h"
 
 static void	*get_texture_data(t_game *g, t_ray *ray, int side, int *tex_x)
 {
@@ -106,6 +106,8 @@ void	render(void *param)
 		draw_column(g, &g->ray, x, side);
 		x++;
 	}
+	initialise_minimap(g);
+	draw_minimap(g);
 	mlx_set_image_region(
 		g->mlx, g->screen_img, 0, 0, g->screen_w, g->screen_h, g->screen_pix);
 	mlx_put_image_to_window(g->mlx, g->win, g->screen_img, 0, 0);
