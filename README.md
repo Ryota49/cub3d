@@ -1,6 +1,6 @@
-# cub3d
-
 *This project has been created as part of the 42 curriculum by *jemonthi* and *byonis*.*
+
+# cub3d
 
 ## Description
 
