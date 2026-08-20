@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byonis <byonis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 12:07:17 by jemonthi          #+#    #+#             */
-/*   Updated: 2026/07/20 16:17:09 by byonis           ###   ########.fr       */
+/*   Updated: 2026/08/20 03:02:16 by jemonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -90,7 +90,7 @@ typedef struct s_minimap
 	int	cell;
 	int	offset_x;
 	int	offset_y;
-} t_minimap;
+}	t_minimap;
 
 typedef struct s_game
 {
@@ -229,7 +229,7 @@ void		update_movement_mouse(t_game *g);
 void		update_movement(t_game *g);
 
 // Minimap
-void	draw_minimap(t_game *g);
-void    initialise_minimap(t_game *g);
+void		draw_minimap(t_game *g);
+void		initialise_minimap(t_game *g);
 
 #endif

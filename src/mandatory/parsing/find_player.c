@@ -28,9 +28,10 @@ void	check_count(t_utils_parsing *parsing)
 		create_copy_map(parsing);
 	else if (parsing->map.count_e == 0 && parsing->map.count_w == 0
 		&& parsing->map.count_n == 0 && parsing->map.count_s == 0)
-		err_map("No player's position found in the map\n", parsing);
+		err_map("Error\nNo player's position found in the map\n", parsing);
 	else
-		err_map("Too much player's position reference in the map\n", parsing);
+		err_map("Error\nToo much player's position reference in the map\n",
+			parsing);
 }
 
 void	check_player_character(t_utils_parsing *parsing)
